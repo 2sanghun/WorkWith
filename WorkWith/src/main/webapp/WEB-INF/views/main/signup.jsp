@@ -148,12 +148,6 @@
 					</tr>
 					<tr>
 						<td>*</td>
-						<td>닉네임</td>
-						<td><input type="text" id="nickname" name="nick"
-							maxlength='10' class="box"></td>
-					</tr>
-					<tr>
-						<td>*</td>
 						<td>주소</td>
 						<td><input type="text" name="addr" id="addr1"
 							placeholder="우편번호"> <input type="button" id="addrButton"

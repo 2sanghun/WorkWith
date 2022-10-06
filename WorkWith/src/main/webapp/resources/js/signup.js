@@ -21,7 +21,24 @@ window.addEventListener('load', function() {
 		}
 		var emplnoDt = $("#startdate").val();
 		emplnoDt = emplnoDt.substr(2, 2) + emplnoDt.substr(5, 2)
-		$("#emplno").val(emplnoDe + emplnoDt);
+		var emplno = emplnoDe + emplnoDt;
+		$.ajax({
+			type : 'get',
+			url : "/main/emplno",
+			data : {"emplno" : emplno},
+			dataType : "json",
+			success : function(result){
+				result = String(result+1);
+				if(result.length==1){
+					$("#emplno").val(emplno+"_00"+result);
+				}else if(result.length==2){
+					$("#emplno").val(emplno+"_0"+result);
+				}else{
+					$("#emplno").val(emplno+"_"+result);
+				}
+				
+			}
+		})
 	});
 
 	$("#startdate").change(function() {
@@ -39,7 +56,24 @@ window.addEventListener('load', function() {
 		}
 		var emplnoDt = $("#startdate").val();
 		emplnoDt = emplnoDt.substr(2, 2) + emplnoDt.substr(5, 2)
-		$("#emplno").val(emplnoDe + emplnoDt);
+		var emplno = emplnoDe + emplnoDt;
+		$.ajax({
+			type : 'get',
+			url : "/main/emplno",
+			data : {"emplno" : emplno},
+			dataType : "json",
+			success : function(result){
+				result = String(result+1);
+				if(result.length==1){
+					$("#emplno").val(emplno+"_00"+result);
+				}else if(result.length==2){
+					$("#emplno").val(emplno+"_0"+result);
+				}else{
+					$("#emplno").val(emplno+"_"+result);
+				}
+				
+			}
+		})
 	});
 });
 
@@ -127,11 +161,6 @@ function jsSubmit() {
 	;
 	if (bdValue == '') {
 		alert("생년월일를 알맞게 입력해주세요.");
-		return false;
-	}
-	;
-	if (nickValue == '') {
-		alert("닉네임를 알맞게 입력해주세요.");
 		return false;
 	}
 	;

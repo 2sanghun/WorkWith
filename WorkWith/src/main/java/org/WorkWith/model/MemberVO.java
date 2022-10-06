@@ -7,6 +7,8 @@ public class MemberVO {
 	
 	private String position;
 	
+	private String emplno;
+	
 	private String password;
 		
 	private String addr;
@@ -113,10 +115,18 @@ public class MemberVO {
 		this.startdate = startdate;
 	}
 
+	public String getEmplno() {
+		return emplno;
+	}
+
+	public void setEmplno(String emplno) {
+		this.emplno = emplno;
+	}
+	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", department=" + department + ", position=" + position + ", password=" + password
-				+ ", addr=" + addr + ", phone=" + phone + ", email=" + email + ", name=" + name
-				+ ", startdate=" + startdate + ", birth=" + birth + ", cnt=" + cnt + "]";
+		return "MemberVO [id=" + id + ", department=" + department + ", position=" + position + ", emplno=" + emplno
+				+ ", password=" + password + ", addr=" + addr + ", phone=" + phone + ", email=" + email + ", name="
+				+ name + ", startdate=" + startdate + ", birth=" + birth + ", cnt=" + cnt + "]";
 	}
 }

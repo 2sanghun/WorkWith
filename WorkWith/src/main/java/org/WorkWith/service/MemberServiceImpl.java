@@ -15,4 +15,8 @@ public class MemberServiceImpl implements MemberService{
 		return mm.idcheck(member);
 	}
 	
+	public int emplno(MemberVO member) {
+		return mm.emplno(member);
+	}
+	
 }
