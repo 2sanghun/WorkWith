@@ -211,9 +211,9 @@
 								}).open();
 					}
 				</script>
-				<input type="submit" value="가입" id="signup" class="signup_btn"> <a
-					href="../main/login" class="cancle"><input type="button"
-					value="취소" class="signup_btn"></a>
+				<input type="submit" value="가입" id="signup" class="basic_btn"> <a
+					href="../main/login"><input type="button"
+					value="취소" class="basic_btn"></a>
 			</div>
 		</form>
 		</div>
