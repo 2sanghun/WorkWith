@@ -14,26 +14,32 @@
 }
 
 #container {
-	margin: auto;
-	height: 300px;
-	width: 500px;
-	background-color: rgba(255, 255, 255, 0.69);
-	position: absolute;
-	top: 30%;
-	right: 40%;
-	border-radius: 30px;
 	text-align: center;
+    background-color: rgba( 255, 255, 255, 0.69 );
+    display: inline-block;
+    position: absolute;
+    right: 40%;
+    top: 30%;
+    margin: 10px;
+    padding: 10px;
+    height: 250px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.search_lab{
+	font-weight:bold;
 }
 
 .box {
-	padding: 10px;
+	padding: 5px;
 	width: 300px;
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: bold;
 	color: gray;
 	text-align: center;
 	border-radius: 10px;
-	margin: 10px;
+	margin:10px;
 }
 
 .basic_btn{
