@@ -42,6 +42,12 @@ public class MainController {
 		}
 		return "redirect:/board/board";
 	}
+	
+	@RequestMapping(value = "/main/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/main/login";
+	}
 
 	@RequestMapping(value = "/main/emplno", method = RequestMethod.GET)
 	public ResponseEntity<Integer> emplno(MemberVO member, HttpServletResponse response) throws IOException {
