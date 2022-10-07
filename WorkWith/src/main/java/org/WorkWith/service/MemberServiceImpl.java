@@ -19,4 +19,11 @@ public class MemberServiceImpl implements MemberService{
 		return mm.emplno(member);
 	}
 	
+	public void signup(MemberVO member) {
+		mm.signup(member);
+	}
+	
+	public MemberVO login(MemberVO member) {
+		return mm.login(member);
+	}
 }

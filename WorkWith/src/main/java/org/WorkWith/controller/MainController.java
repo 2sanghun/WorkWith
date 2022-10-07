@@ -1,8 +1,11 @@
 package org.WorkWith.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.WorkWith.service.MemberService;
 import org.WorkWith.model.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,24 @@ public class MainController {
 	
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
 	public void login() {
+	}
+	
+	@RequestMapping(value = "/main/login", method = RequestMethod.POST)
+	public String login(MemberVO member, HttpSession session,HttpServletResponse response) throws IOException {
+		MemberVO a = ms.login(member);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if(a!=null) {
+			String id = a.getId();
+			String position = a.getPosition();
+			session.setAttribute("id",id);
+			session.setAttribute("position", position);
+		}else {
+			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요'); </script>");
+			out.flush();
+			return "/main/login";
+		}
+		return "redirect:/board/board";
 	}
 	
 	@RequestMapping(value = "/main/idpwSearch", method = RequestMethod.GET)
@@ -43,8 +64,12 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/main/signup", method = RequestMethod.POST)
-	public void signupPost(MemberVO member) {
-		
+	public String signupPost(MemberVO member) {
+		member.setEmail(member.getEmail().replace(",", ""));
+		member.setPhone(member.getPhone().replace(",", "-"));
+		member.setAddr(member.getAddr().replace(",", "/"));
+		ms.signup(member);
+		return "/main/login";
 	}
 	
 	

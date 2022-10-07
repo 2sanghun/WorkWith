@@ -6,4 +6,8 @@ public interface MemberMapper {
 	public int idcheck(MemberVO member);
 	
 	public int emplno(MemberVO member);
+	
+	public void signup(MemberVO member);
+	
+	public MemberVO login(MemberVO member);
 }

@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../../../resources/css/signup.css" type="text/css">
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type="text/javascript" src="../../../resources/js/signup.js"></script>
 <script type="text/javascript" src="../../../resources/js/effective.js"></script>
 </head>
 <body>
-	<div id="container">
+	<div id="background">
+		<div id="container">
 		<h1 id="signupcss">회원가입</h1>
 		<div id="top">
 			회원 정보 입력 (필수 <span style="color: red;">*</span> )
@@ -19,30 +21,26 @@
 			onsubmit="return jsSubmit();">
 			<div id="main">
 				<table>
-					<tr class="firstchild">
+					<tr>
 						<td>*</td>
 						<td>이름</td>
-						<td><input type="text" id="name" name="name" maxlength='10'
-							class="box"></td>
+						<td><input type="text" id="name" name="name" maxlength='10' class="box"></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>부서</td>
-						<td>
-							<select name="department" id="department">
+						<td><select name="department" id="department" class="shortbox">
 								<option value="총무팀">총무팀</option>
 								<option value="인사팀">인사팀</option>
 								<option value="기획팀">기획팀</option>
 								<option value="영업팀">영업팀</option>
 								<option value="회계팀">회계팀</option>
-							</select>
-						</td>
+						</select></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>직책</td>
-						<td>
-							<select name="position">
+						<td><select name="position" class="shortbox">
 								<option value="사원">사원</option>
 								<option value="주임">주임</option>
 								<option value="대리">대리</option>
@@ -54,32 +52,29 @@
 								<option value="전무">전무</option>
 								<option value="부사장">부사장</option>
 								<option value="사장">사장</option>
-							</select>
-						</td>
+						</select></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>입사일</td>
-						<td><input type="date" name="startdate" id="startdate" class="box"></td>
+						<td><input type="date" name="startdate" id="startdate" class="box" max="9999-12-31"></td>
 					</tr>
 					<tr>
-						<td>*</td>
+						<td></td>
 						<td>사원번호</td>
-						<td><input type="text" name="emplno" id="emplno" class="box" readonly></td>
+						<td><input type="text" name="emplno" id="emplno" readonly class="box"></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>아이디</td>
-						<td><input type="text" id="idchk" name="id" maxlength='20'
-							class="box"></td>
-						<td><input type="button" value="중복확인" onclick="idCheck()"
-							class="idbtn"></td>
+						<td><input type="text" id="idchk" name="id" maxlength='20' class="box"></td>
+						<td><input type="button" value="중복확인" onclick="idCheck()" class="idcheck_btn"></td>
 					</tr>
-					<tr>
+					<tr class="msg_tr">
 
 						<td></td>
 						<td></td>
-						<td colspan="2"><span id="idmsg" class="msg"></span></td>
+						<td colspan="2"><span id="idmsg"></span></td>
 					</tr>
 					<tr>
 						<td>*</td>
@@ -87,74 +82,71 @@
 						<td><input type="password" id="pwchk" name="password"
 							maxlength='20' class="box"></td>
 					</tr>
-					<tr>
+					<tr class="msg_tr">
 
 						<td></td>
 						<td></td>
-						<td colspan="2"><span id="pwmsg" class="msg"></span></td>
+						<td colspan="2"><span id="pwmsg"></span></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>비밀번호 확인</td>
-						<td><input type="password" id="rechk" maxlength='20'
-							class="box"></td>
+						<td><input type="password" id="rechk" maxlength='20' class="box"></td>
 					</tr>
-					<tr>
+					<tr class="msg_tr">
 						<td></td>
 						<td></td>
-						<td colspan="2"><span id="remsg" class="msg"></span></td>
+						<td colspan="2"><span id="remsg"></span></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>E-mail</td>
 						<td colspan="2"><input type="text" id="email" name="email"
-							maxlength='20' class="box"> @ <select name="email"
-							class="emailselect">
+							maxlength='20' class="midbox"> @ <select name="email"
+							class="selectbox">
 								<option value="@naver.com">naver.com</option>
 								<option value="@daum.net">daum.net</option>
 								<option value="@google.com">gmail.com</option>
 						</select></td>
 					</tr>
-					<tr>
+					<tr class="msg_tr">
 						<td></td>
 						<td></td>
-						<td colspan="2"><span id="emmsg" class="msg"></span></td>
+						<td colspan="2"><span id="emmsg"></span></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>전화번호</td>
-						<td><select name="phone" class="emailselect">
+						<td><select name="phone" class="shortbox">
 								<option value="010">010</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
 								<option value="017">017</option>
 								<option value="019">019</option>
-						</select> - <input type="text" name="phone" id="numchk1" maxlength='4'
-							class="shortbox"
+						</select> - <input type="text" name="phone" id="numchk1" maxlength='4' class="shortbox"
 							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');">
-							- <input type="text" name="phone" id="numchk2" maxlength='4'
-							class="shortbox"
+							- <input type="text" name="phone" id="numchk2" maxlength='4' class="shortbox"
 							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
 					</tr>
-					<tr>
+					<tr class="msg_tr">
 						<td></td>
 						<td></td>
-						<td colspan="2"><span id="nummsg" class="msg"></span></td>
+						<td colspan="2"><span id="nummsg"></span></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>생년월일</td>
-						<td><input type="date" name="birth" id="bdchk" class="box"></td>
+						<td><input type="date" name="birth" id="bdchk" class="box" max="9999-12-31"></td>
 					</tr>
 					<tr>
 						<td>*</td>
 						<td>주소</td>
 						<td><input type="text" name="addr" id="addr1"
-							placeholder="우편번호"> <input type="button" id="addrButton"
+							placeholder="우편번호" class="shortbox"> <input type="button" id="addrButton"
 							onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" name="addr" id="addr2" placeholder="주소"><br>
-							<input type="text" name="addr" id="addrDetail" placeholder="상세주소">
-							<input type="text" name="addr" id="addrExtra" placeholder="참고항목">
+							<input type="text" name="addr" id="addr2" placeholder="주소"class="box"><br>
+							<input type="text" name="addr" id="addrDetail" placeholder="상세주소"class="midbox">
+							<input type="text" name="addr" id="addrExtra" placeholder="참고항목" class="shortbox">
 						</td>
 					</tr>
 				</table>
@@ -219,11 +211,12 @@
 								}).open();
 					}
 				</script>
-				<input type="submit" value="가입" id="signup" class="button">
-				<a href="../main/login" class="cancle"><input type="button"
-					value="취소" class="button"></a>
+				<input type="submit" value="가입" id="signup" class="signup_btn"> <a
+					href="../main/login" class="cancle"><input type="button"
+					value="취소" class="signup_btn"></a>
 			</div>
 		</form>
+		</div>
 	</div>
 </body>
 </html>

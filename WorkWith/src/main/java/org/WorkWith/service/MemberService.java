@@ -8,4 +8,10 @@ public interface MemberService {
 	
 	// 사원번호 관련 중복 개수
 	public int emplno(MemberVO member);
+	
+	// 회원가입
+	public void signup(MemberVO member);
+
+	// 로그인
+	public MemberVO login(MemberVO member);
 }
