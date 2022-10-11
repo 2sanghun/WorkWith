@@ -25,6 +25,6 @@
 		update member set password=#{password} where email=#{email} and id=#{id};
 	</update>
 	<select id="emplno" resultType="int">
-		select count(*) from member where emplno like CONCAT('%',#{emplno},'%');
+		select count(*) from member where emplno like CONCAT(#{emplno},'%');
 	</select>
 </mapper>

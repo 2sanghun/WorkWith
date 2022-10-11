@@ -29,19 +29,16 @@
 			%>
 			<!-- 직책이 사장, 부사장일 경우 마이페이지 대신 관리자 버튼 -->
 			<a href="../manage/memberManage">
-			<input type="button" value="관리자" class="headerbtn_mypage"></a>
-			<a href="../main/logout">
-			<input type="button" value="로그아웃" class="headerbtn"></a> 
+			<input type="button" value="인사관리" class="headerbtn_mypage"></a>
 			<%
-				} else {
+				}
 			%>
-			<a href="../mypage/myInpo">
+			<a href="../mypage/myInfo">
 			<input type="button" value="마이페이지" class="headerbtn_mypage"></a> 
 			<a href="../main/logout">
 			<input type="button" value="로그아웃" class="headerbtn"></a> 
 			<%
-				}
-			}
+			}		
 			%>
 		</nav>
 	</header>
