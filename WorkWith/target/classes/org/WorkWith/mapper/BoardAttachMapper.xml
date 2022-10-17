@@ -13,11 +13,6 @@
 	<delete id="attachremove">
     delete from boardattach where uuid=#{uuid};
 	</delete>
-	
-	
-<!--<select id="attachlist" resultType="org.WorkWith.model.AttachFileVO">
-		select * from attach where bno = #{bno};
-	</select> -->
 
 	<select id="attachlist" resultType="org.WorkWith.model.AttachFileVO">
 		select max(a.uuid), a.uploadpath, a.filename,a.image,a.bno , b.content

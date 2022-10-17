@@ -24,11 +24,7 @@ public class BoardVO {
 	private String id;
 
 	private String filePath;
-	
-	private int cnthno;
-	
-	private int cntrno; 
-	
+			
 	// AttachFileVO(파일 업로드 관련 model)
 	private ArrayList<AttachFileVO> attach;
 
@@ -104,29 +100,6 @@ public class BoardVO {
 		this.id = id;
 	}
 
-	public String getFilePath() {
-		return filePath;
-	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-
-	public int getCnthno() {
-		return cnthno;
-	}
-
-	public void setCnthno(int cnthno) {
-		this.cnthno = cnthno;
-	}
-
-	public int getCntrno() {
-		return cntrno;
-	}
-
-	public void setCntrno(int cntrno) {
-		this.cntrno = cntrno;
-	}
 
 	public ArrayList<AttachFileVO> getAttach() {
 		return attach;
@@ -140,9 +113,9 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", cnt="
 				+ cnt + ", department=" + department + ", position=" + position + ", category=" + category + ", id="
-				+ id + ", filePath=" + filePath + ", cnthno=" + cnthno + ", cntrno=" + cntrno + ", attach=" + attach
-				+ "]";
+				+ id + ", attach=" + attach + "]";
 	}
+
 	
 	
 }

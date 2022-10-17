@@ -14,8 +14,8 @@
 
 </head>
 <body>
+<%@ include file="../main/header.jsp"%>
 	<div id="container">
-		<%@ include file="../main/header.jsp"%>
 		<form action="/board/write" id="form" method="post">
 			<div id="top">
 				<h1 id="writecss">글 쓰기</h1>
@@ -51,7 +51,7 @@
 				<table>
 					<tr>
 						<td><label> 파일첨부 <input type="file" name="uploadFile"
-								id="uploadFile" hidden="" multiple>
+								id="uploadFile" multiple>
 						</label></td>
 						<td style="text-align: left"><div id="uploadResult2"></div></td>
 					</tr>
