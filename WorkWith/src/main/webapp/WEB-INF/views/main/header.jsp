@@ -10,6 +10,7 @@
 <%
 	String id = (String) session.getAttribute("id");
 	String position = (String) session.getAttribute("position");
+	String department = (String) session.getAttribute("department");
 	if (id == null) {
 		out.println("<script>alert('로그인 해주세요.')</script>");
 		out.println("<script>location.href='/main/login';</script>");

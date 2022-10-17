@@ -9,7 +9,7 @@
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../resources/js/uploadAjax.js"></script>
 <script type="text/javascript"
-	src="../../../resources/JS/writeAttach.js"></script>
+	src="../../../resources/js/writeAttach.js"></script>
 
 
 </head>
@@ -26,11 +26,11 @@
 						<td>
 							<div id="select">
 								<select name="category">
-									<option value="관광">관광</option>
-									<option value="숙소">숙소</option>
-									<option value="음식">음식</option>
-									<option value="교통">교통</option>
-									<option value="투어">투어</option>
+									<option value="총무">총무</option>
+									<option value="인사">인사</option>
+									<option value="기획">기획</option>
+									<option value="영업">영업</option>
+									<option value="회계">회계</option>
 									<%
 										if (position.equals("사장") | position.equals("부사장")) {
 									%><option value="공지">공지</option>

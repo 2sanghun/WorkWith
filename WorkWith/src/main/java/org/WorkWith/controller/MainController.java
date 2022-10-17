@@ -33,8 +33,11 @@ public class MainController {
 		if (a != null) {
 			String id = a.getId();
 			String position = a.getPosition();
+			String department = a.getDepartment();
 			session.setAttribute("id", id);
 			session.setAttribute("position", position);
+			session.setAttribute("department", department);
+
 		} else {
 			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요'); </script>");
 			out.flush();

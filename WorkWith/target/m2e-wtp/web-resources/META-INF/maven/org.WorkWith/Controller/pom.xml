@@ -7,7 +7,7 @@
 	<artifactId>Controller</artifactId>
 	<name>WorkWith</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version> 
+	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
@@ -40,7 +40,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.21</version>
-		</dependency> 
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 		<!-- DBCP 연동 -->
 		<dependency>
@@ -48,7 +48,7 @@
 			<artifactId>HikariCP</artifactId>
 			<version>2.7.4</version>
 		</dependency>
-		
+
 		<!-- mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
@@ -74,7 +74,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- Ajax -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -96,7 +96,7 @@
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.10.0</version>
 		</dependency>
-		
+
 		<!-- mail 관련 -->
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
@@ -110,7 +110,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -161,6 +161,14 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -171,8 +179,8 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
