@@ -212,7 +212,7 @@
 					}
 				</script>
 				<input type="submit" value="가입" id="signup" class="basic_btn"> <a
-					href="../main/login"><input type="button"
+					href="/main/login"><input type="button"
 					value="취소" class="basic_btn"></a>
 			</div>
 		</form>

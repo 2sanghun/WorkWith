@@ -37,7 +37,7 @@
 						class="box"><br> <input type="text" name="email"
 						placeholder="이메일을 입력해주세요" class="box"><br> <input
 						type="submit" value="확인" class="basic_btn"> <a
-						href="../main/login"> <input type="button" value="취소"
+						href="/main/login"> <input type="button" value="취소"
 						class="basic_btn"></a>
 				</form>
 

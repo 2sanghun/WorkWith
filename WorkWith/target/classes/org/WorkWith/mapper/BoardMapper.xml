@@ -5,32 +5,216 @@
 <!-- namespace로 TestMapper와 연결 -->
 <mapper namespace="org.WorkWith.mapper.BoardMapper">
 	<insert id="boardwrite">
-	<!-- <selectKey keyProperty="bno" order="BEFORE" resultType="int">
-		select MAX(bno)+1 from board;
-	</selectKey> 이 selecKey를 사용하기 위해서는 insert문에 bno를 추가해 주어야 함.또한 board 테이블이 비어있을 경우 오류발생-->
-		insert into board(title, content, category, id, position, department)
-		values(#{title},#{content},#{category},#{id}, #{position}, #{department})
-	<!-- board테이블이 비어있어도 사용 가능 -->
-	<selectKey keyProperty="bno" order="AFTER" resultType="int">
-		select LAST_INSERT_ID();
-	</selectKey>
+		<!-- <selectKey keyProperty="bno" order="BEFORE" resultType="int"> select 
+			MAX(bno)+1 from board; </selectKey> 이 selecKey를 사용하기 위해서는 insert문에 bno를 추가해 
+			주어야 함.또한 board 테이블이 비어있을 경우 오류발생 -->
+		insert into board(title, content, category, id, position, department,
+		name)
+		values(#{title},#{content},#{category},#{id}, #{position},
+		#{department}, #{name})
+		<!-- board테이블이 비어있어도 사용 가능 -->
+		<selectKey keyProperty="bno" order="AFTER" resultType="int">
+			select LAST_INSERT_ID();
+		</selectKey>
 	</insert>
-	
-	 <select id="search" resultType="org.WorkWith.model.BoardVO">
-		select * 
-		from (
-			select @rownum:=@rownum+1 rownum, b.*
-			from board b, (select @rownum:=0) as tmp
-			where title like CONCAT('%',#{keyword},'%') or content like CONCAT('%',#{keyword},'%')
-			order by bno desc
-		) as boardlist
+
+	<select id="list" resultType="org.WorkWith.model.BoardVO">
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum, boardlist.*
+		from(
+		select
+		b.* from board b, (select @rownum:=0) as tmp
+		<choose>
+			<when test="category != null and !category.equals('')">
+				where category=#{category}
+				<if test="keyword!=null">
+					<choose>
+						<when test="period == 'day'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							day) and now())
+						</when>
+						<when test="period == 'week'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							week) and now())
+						</when>
+						<when test="period == 'month'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							month) and now())
+						</when>
+						<when test="period == 'sixMonth'.toString()">
+							and (regdate between date_ADD(now(), interval -6
+							month) and now())
+						</when>
+						<when test="period == 'year'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							year) and now())
+						</when>
+					</choose>
+					<choose>
+						<when test="type == 'T'.toString()">
+							and title like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'N'.toString()">
+							and name like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'TC'.toString()">
+							and (title like concat('%',#{keyword},'%')
+							or
+							content like concat('%',#{keyword},'%'))
+						</when>
+					</choose>
+				</if>
+				<if test="keyword==null or keyword == ''">
+					and category != "공지"
+				</if>
+			</when>
+			<otherwise>
+				where bno > 0
+				<if test="keyword!=null">
+					<choose>
+						<when test="period == 'day'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							day) and now())
+						</when>
+						<when test="period == 'week'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							week) and now())
+						</when>
+						<when test="period == 'month'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							month) and now())
+						</when>
+						<when test="period == 'sixMonth'.toString()">
+							and (regdate between date_ADD(now(), interval -6
+							month) and now())
+						</when>
+						<when test="period == 'year'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							year) and now())
+						</when>
+					</choose>
+					<choose>
+						<when test="type == 'T'.toString()">
+							and title like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'N'.toString()">
+							and name like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'TC'.toString()">
+							and (title like concat('%',#{keyword},'%')
+							or
+							content like concat('%',#{keyword},'%'))
+						</when>
+					</choose>
+				</if>
+				<if test="keyword==null or keyword == ''">
+					and category != "공지"
+				</if>
+			</otherwise>
+		</choose>
+		order by bno desc) as boardlist
+		) as bllist
 		<![CDATA[
-			where rownum>(#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+		where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
 		]]>
 	</select>
-	
+
+	<select id="Notice" resultType="org.WorkWith.model.BoardVO">
+		select * from board where
+		category='공지' and (regdate between date_ADD(now(), interval -1
+		month) and now()) order by bno desc;
+	</select>
+
 	<select id="total" resultType="int">
 		select count(*) from board
-		where title like CONCAT('%',#{keyword},'%') or content like CONCAT('%',#{keyword},'%')
+		<choose>
+			<when test="category != null and !category.equals('')">
+				where category=#{category}
+				<if test="keyword!=null">
+					<choose>
+						<when test="period == 'day'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							day) and now())
+						</when>
+						<when test="period == 'week'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							week) and now())
+						</when>
+						<when test="period == 'month'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							month) and now())
+						</when>
+						<when test="period == 'sixMonth'.toString()">
+							and (regdate between date_ADD(now(), interval -6
+							month) and now())
+						</when>
+						<when test="period == 'year'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							year) and now())
+						</when>
+					</choose>
+					<choose>
+						<when test="type == 'T'.toString()">
+							and title like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'N'.toString()">
+							and name like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'TC'.toString()">
+							and (title like concat('%',#{keyword},'%')
+							or
+							content like concat('%',#{keyword},'%'))
+						</when>
+					</choose>
+				</if>
+				<if test="keyword==null or keyword == ''">
+					and category != "공지"
+				</if>
+			</when>
+			<otherwise>
+				where bno>0
+				<if test="keyword!=null">
+					<choose>
+						<when test="period == 'day'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							day) and now())
+						</when>
+						<when test="period == 'week'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							week) and now())
+						</when>
+						<when test="period == 'month'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							month) and now())
+						</when>
+						<when test="period == 'sixMonth'.toString()">
+							and (regdate between date_ADD(now(), interval -6
+							month) and now())
+						</when>
+						<when test="period == 'year'.toString()">
+							and (regdate between date_ADD(now(), interval -1
+							year) and now())
+						</when>
+					</choose>
+					<choose>
+						<when test="type == 'T'.toString()">
+							and title like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'N'.toString()">
+							and name like concat('%',#{keyword},'%')
+						</when>
+						<when test="type == 'TC'.toString()">
+							and (title like concat('%',#{keyword},'%')
+							or
+							content like concat('%',#{keyword},'%'))
+						</when>
+					</choose>
+				</if>
+				<if test="keyword==null or keyword == ''">
+					and category != "공지"
+				</if>
+			</otherwise>
+		</choose>
 	</select>
- </mapper>
+</mapper>

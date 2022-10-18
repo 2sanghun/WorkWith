@@ -23,8 +23,8 @@ public class BoardVO {
 	
 	private String id;
 
-	private String filePath;
-			
+	private String name;
+	
 	// AttachFileVO(파일 업로드 관련 model)
 	private ArrayList<AttachFileVO> attach;
 
@@ -109,13 +109,19 @@ public class BoardVO {
 		this.attach = attach;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", cnt="
 				+ cnt + ", department=" + department + ", position=" + position + ", category=" + category + ", id="
-				+ id + ", attach=" + attach + "]";
+				+ id + ", name=" + name + ", attach=" + attach + "]";
 	}
-
-	
 	
 }
