@@ -123,7 +123,8 @@
 	<select id="Notice" resultType="org.WorkWith.model.BoardVO">
 		select * from board where
 		category='공지' and (regdate between date_ADD(now(), interval -1
-		month) and now()) order by bno desc;
+		month)
+		and now()) order by bno desc;
 	</select>
 
 	<select id="total" resultType="int">
@@ -217,4 +218,18 @@
 			</otherwise>
 		</choose>
 	</select>
+
+	<select id="detail" resultType="org.WorkWith.model.BoardVO" >
+		select * from
+		board where bno=#{bno}
+	</select>
+
+	<update id="cntup"> update board set cnt = cnt + 1 where bno = #{bno}
+	</update>
+
+	<update id="modify"> update board set title=#{title}, content=#{content}
+		where bno=#{bno}
+	</update>
+
+	<delete id="remove"> delete from board where bno=#{bno} </delete>
 </mapper>

@@ -15,7 +15,7 @@
 	</delete>
 
 	<select id="attachlist" resultType="org.WorkWith.model.AttachFileVO">
-		select max(a.uuid), a.uploadpath, a.filename,a.image,a.bno , b.content
+		select a.uuid, a.uploadpath, a.filename,a.image,a.bno , b.content
 		from boardattach a
 		right outer join board b
 		on a.bno=b.bno

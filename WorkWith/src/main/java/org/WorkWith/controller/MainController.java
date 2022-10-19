@@ -55,13 +55,13 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/main/emplno", method = RequestMethod.GET)
-	public ResponseEntity<Integer> emplno(MemberVO member, HttpServletResponse response) throws IOException {
+	public ResponseEntity<Integer> emplno(MemberVO member){
 		int result = ms.emplno(member);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/main/idcheck", method = RequestMethod.POST)
-	public ResponseEntity<Integer> idcheck(MemberVO member, HttpServletResponse response) throws IOException {
+	public ResponseEntity<Integer> idcheck(MemberVO member){
 		int result = ms.idcheck(member);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}

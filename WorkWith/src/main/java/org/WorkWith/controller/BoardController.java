@@ -1,10 +1,13 @@
 package org.WorkWith.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.WorkWith.model.BoardVO;
 import org.WorkWith.service.BoardService;
+import org.WorkWith.model.AttachFileVO;
 import org.WorkWith.model.CriteriaVO;
 import org.WorkWith.model.pageVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BoardController {
@@ -63,6 +67,46 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/board/boardDetail", method = RequestMethod.GET)
-	public void boardDetail() {
-	}
+	   public String detail(BoardVO board, Model model) {
+	      model.addAttribute("detail", bs.detail(board));
+	      return "board/boardDetail";
+	   }
+	
+	   //@RequestMapping(value = "/detail/modify", method = RequestMethod.POST)
+	   @RequestMapping(value = "/detail/modify", method = RequestMethod.PUT)
+	   //public String modify(BoardVO board, RedirectAttributes rttr) {
+	   public ResponseEntity <String> modify(@RequestBody BoardVO board) {	
+		   int result = bs.modify(board);
+		   return result==1? new ResponseEntity<> ("success", HttpStatus.OK)
+			               : new ResponseEntity<> (HttpStatus.INTERNAL_SERVER_ERROR);
+	   }
+	   
+	   @RequestMapping(value = "/board/addAttach", method = RequestMethod.POST)
+	   public ResponseEntity <String> addAttach(@RequestBody ArrayList<AttachFileVO> attach) {	
+		   int result = bs.addAttach(attach);
+		   System.out.println(result);
+		   return result==1? new ResponseEntity<> ("success", HttpStatus.OK)
+			               : new ResponseEntity<> (HttpStatus.INTERNAL_SERVER_ERROR);
+	   }
+	   
+	// @RequestMapping(value = "/detail/remove", method = RequestMethod.POST)
+	   @RequestMapping(value = "/detail/remove", method = RequestMethod.GET)
+	   public String remove(BoardVO board) {
+	      bs.remove(board);
+	      return "redirect:/board/board";
+	   }
+	   
+	   // 해당게시물의 첨부파일의 데이터를 ajax로 전송
+	   @RequestMapping(value = "/attachlist", method = RequestMethod.GET)
+	   public ResponseEntity<ArrayList<AttachFileVO>> attachlist(int bno){
+		   return new ResponseEntity<>(bs.attachlist(bno), HttpStatus.OK);
+	   }
+	   
+	   
+	   @RequestMapping(value = "/attach/remove", method = RequestMethod.DELETE)
+	   public ResponseEntity <String> attachremove (@RequestBody AttachFileVO attach){
+		   int result = bs.attachremove(attach);
+		   return result==1? new ResponseEntity<> ("success", HttpStatus.OK)
+				   			: new ResponseEntity<> (HttpStatus.INTERNAL_SERVER_ERROR);
+	   }
 }

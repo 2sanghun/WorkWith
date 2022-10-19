@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 
 </head>
 <body>
-<%@ include file="../main/header.jsp"%>
+	<%@ include file="../main/header.jsp"%>
 	<div id="container">
 		<form action="/board/write" id="form" method="post">
 			<div id="top">
@@ -31,12 +32,12 @@
 									<option value="기획">기획</option>
 									<option value="영업">영업</option>
 									<option value="회계">회계</option>
-									<%
-										if (position.equals("사장") | position.equals("부사장")) {
-									%><option value="공지">공지</option>
-									<%
-										}
-									%>
+									<c:choose>
+										<c:when
+											test="${position.equals('사장') || position.equals('부사장')}">
+											<option value="공지">공지</option>
+										</c:when>
+									</c:choose>
 								</select>
 							</div>
 						</td>
@@ -45,8 +46,8 @@
 					</tr>
 				</table>
 
-				<div id="uploadResult" contentEditable="true"
-					style="min-height: 500px; height: auto;"></div>
+				<textarea id="uploadResult" contentEditable="true"
+					style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
 
 				<table>
 					<tr>
@@ -58,7 +59,8 @@
 				</table>
 				<div id="button">
 					<input type="button" id="uploadBtn" value="작성" class="button">
-					<a href="/board/board"><input type="button" value="취소" class="button"></a>
+					<a href="/board/board"><input type="button" value="취소"
+						class="button"></a>
 				</div>
 			</div>
 			<div id="bottom"></div>

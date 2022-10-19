@@ -31,7 +31,7 @@
 	$("#uploadBtn").on("click",function(){
 		// 제목과 내용을 유효성 검사
 		var title = document.querySelector("#uploadtitle").value;
-		var content = $("#uploadResult").html();
+		var content = $("#uploadResult").val();
 		if(title==""){
 			alert("제목을 입력하세요.");
 			return false;
@@ -71,29 +71,13 @@
 			success : function(result){
 				console.log(result);
 				var atlist = [];
-				var str = content;
 				var input = "";
 				$(result).each(function(i, obj){	// result가 배열이면 each(for) i가 인덱스 번호, obj[i]
 					var listdata = {"fileName":obj.fileName,"uuid":obj.uuid,"uploadPath":obj.uploadPath,"image":obj.image}
 					atlist.push(listdata);
-					// 만약 image 결과가 true면
-					if(obj.image){
-						// 아래에 있는거 실행
-						var filePath = encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
-						console.log(filePath);
-					
-						str+="<li><img src='/display?fileName="+filePath+"'></li>";
-					}else{	// 그렇지 않으면
-						// 다운로드 할 수 있도록 실행
-						var filePath = encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName);
-						str += "<li><a href='/download?fileName="+filePath+"'><li>"+obj.fileName+"</a>";
-					}
 				})
-				
-				var titleVal = $("#uploadtitle").val()
-				var contentValue = str;
 				var categoryVal = $("#select select").val();
-				writePost({content:contentValue,title:titleVal,category:categoryVal,attach:atlist})
+				writePost({content:content,title:title,category:categoryVal,attach:atlist})
 			}
 		})
 	})
