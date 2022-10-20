@@ -11,6 +11,9 @@
 <script type="text/javascript" src="../../../resources/js/uploadAjax.js"></script>
 <script type="text/javascript"
 	src="../../../resources/js/writeAttach.js"></script>
+<link rel="stylesheet" href="../../../resources/css/write.css"
+	type="text/css">
+
 </head>
 <body>
 	<%@ include file="../main/header.jsp"%>
@@ -44,7 +47,7 @@
 					</tr>
 				</table>
 
- 				<textarea id="uploadResult" contentEditable="true"
+				<textarea id="uploadResult" contentEditable="true"
 					style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
 				<table>
 					<tr>

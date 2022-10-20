@@ -11,16 +11,18 @@
 <script type="text/javascript" src="../../../resources/js/detail.js"></script>
 <script type="text/javascript"
 	src="../../../resources/js/writeAttach.js"></script>
+<link rel="stylesheet" href="../../../resources/css/boardDetail.css"
+	type="text/css">
+
 </head>
 <body>
-	<%@ include file="../main/header.jsp"%>	
-	<div id="content">
+	<%@ include file="../main/header.jsp"%>
+	<div id="container">
 		<form id="form">
 			<input type="hidden" name="bno" value="${detail.bno}">
 			<table border="1">
 				<tr class="tr1">
-					<td colspan="4">
-						<c:choose>
+					<td colspan="4"><c:choose>
 							<c:when test="${id != detail.id}">
 								<input type="text" name="title" id="title"
 									value="${detail.title}" readonly>
@@ -60,19 +62,17 @@
 			<div class="upload_file">
 				<c:choose>
 					<c:when test="${id == detail.id}">
-						<div class="form-group uploadDiv">
-							<label> 파일 첨부 <input type="file" name="uploadFile"
-								id="uploadFile" hidden="" multiple>
-							</label>
-						</div>
-
 						<div id="uploadlist">
-							<span class="uploadlist">첨부된 파일 목록 : </span><input type="button"
-								value="파일 업로드" id="addfile">
+							<span class="uploadlist">첨부된 파일 목록</span>
 							<ul id="atfile"></ul>
 							<ul id="atimg"></ul>
 							<!-- 업로드하기 전 확인 목록 -->
-							<div id="uploadResult2"></div>
+							<div class="form-group uploadDiv">
+								<label> 파일 첨부 <input type="file" name="uploadFile"
+									id="uploadFile" hidden="" multiple>
+								</label> <input type="button" value="파일 업로드" id="addfile">
+								<span id="uploadResult2"></span>
+							</div>
 						</div>
 						<span class="modifybtn_box"> <input type='button'
 							value='수정' id="modify"> <input type="submit" value="삭제"
