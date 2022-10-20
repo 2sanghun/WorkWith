@@ -75,10 +75,7 @@ $(document).ready(function() {
 		}
 	})
 	
-   	// 수정 버튼을 클릭하면
-	// 이미 존재하는 태그에 이벤트를 처리하고 
-	// 나중에 동적으로 생기는 태그들에 대해서 파라미터 형식으로 지정(이벤트 델리게이트)
-	$("#modify").on("click", function(e){ 
+	$("#modify").on("click", function(e){ // 첨부파일 수정
 	  
 		// 글 번호를 수집해서    
 		var bnoValue = $("input[name='bno']").val();
@@ -91,12 +88,44 @@ $(document).ready(function() {
 	
 		// 글 수정을 하기 위한 함수 호출(글번호, 글내용, 글제목 )		   
 		modifyboard({bno:bnoValue,content:contentValue,title:titleValue});
-	}) // 글 수정
+	})
 })
 
-function attachremove(i){ // 첨부파일 삭제를 하기 위한 함수 선언 	
+function detailList(){ // 첨부파일 및 글 내용 
+	var bno=$("input[name='bno']").val();
+	
+	$.getJSON("/attachlist",{bno:bno},function(attachlist){
+		var str=attachlist[0].content;
+		var atfile = "";
+		var atimg = "";
+		var downfile = "";
+		var downimg = "";
+		
+		$(attachlist).each(function(i,attach){
+			// 만약 image결과가 true면
+			if(attach.image){
+				var filePath = encodeURIComponent(attach.uploadPath+"/s_"+attach.uuid+"_"+attach.fileName);
+			    atimg += "<li id='AttachList"+i+"'><input type='text' id='AttachFile"+i+"' value='"+attach.uuid+"' hidden>" 
+			    		+ "<a href='/download?fileName="+filePath+"'><img src='/display?fileName="+filePath+"'></a><input type='button' value='삭제' onclick='attachremove("+i+");'></li>";
+			    downimg +="<li><a href='/download?fileName="+filePath+"'><img src='/display?fileName="+filePath+"'></a></li>";
+			}else if(attach.fileName==null){
+			}else{// 그렇지 않으면
+				var filePath = encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.fileName);
+				atfile += "<li id='AttachList"+i+"'><input type='text' id='AttachFile"+i+"' value='"+attach.uuid+"' hidden>"
+			    	   + "<a href='/download?fileName="+filePath+"'><img src='../../../resources/image/folder.png' style='width:30px; height:30px'>"+attach.fileName+"</a><input type='button' value='삭제' onclick='attachremove("+i+");'></li>";
+				downfile += "<li><a href='/download?fileName="+filePath+"'><img src='../../../resources/image/folder.png' style='width:30px; height:30px'>"+attach.fileName+"</a></li>";
+			}
+		})
+		$("#uploadResult").val(str); 
+		$("#atfile").html(atfile); 
+		$("#atimg").html(atimg);
+		$("#downfile").html(downfile);
+		$("#downimg").html(downimg);
+	})
+}
+
+function attachremove(i){ // 첨부파일 삭제	
 	var attachlist={uuid:$("#AttachFile"+i).val()};
-	$("#AttachList"+i).remove();
 	if(confirm("이 파일을 삭제하겠습니까?")){
 		$.ajax({
 			type: "delete",
@@ -105,40 +134,13 @@ function attachremove(i){ // 첨부파일 삭제를 하기 위한 함수 선언
 			contentType:"application/json; charset=utf-8",
 			success: function(result){
 				if(result=="success"){
+					$("#AttachList"+i).remove();
 					alert("삭제되었습니다"); 
 				}
 			}	
 		})	
 	}
 }
-
-function detailList(){
-	var bno=$("input[name='bno']").val();
-	$.getJSON("/attachlist",{bno:bno},function(attachlist){
-		var str=attachlist[0].content;
-		var atfile = "";
-		var atimg = "";
-		$(attachlist).each(function(i,attach){
-			// 만약 image결과가 true면
-			if(attach.image){
-				var filePath = encodeURIComponent(attach.uploadPath+"/s_"+attach.uuid+"_"+attach.fileName);
-			    atimg += "<li id='AttachList"+i+"'><input type='text' id='AttachFile"+i+"' value='"+attach.uuid+"' hidden>" 
-			    		+ "<a href='/download?fileName="+filePath+"'><img src='/display?fileName="+filePath+"'></a><input type='button' value='삭제' onclick='attachremove("+i+");'></li>";
-			}else if(attach.fileName==null){
-			}else{// 그렇지 않으면
-				var filePath = encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.fileName);
-				atfile += "<li id='AttachList"+i+"'><input type='text' id='AttachFile"+i+"' value='"+attach.uuid+"' hidden>"
-			    		+ "<a href='/download?fileName="+filePath+"'><img src='../../../resources/image/folder.png' style='width:30px; height:30px'>"+attach.fileName+"</a><input type='button' value='삭제' onclick='attachremove("+i+");'></li>";
-			}
-		})
-		$("#uploadResult").val(str); 
-		$("#atfile").html(atfile); 
-		$("#atimg").html(atimg);
-
-	})
-	
-}
-
 
 function modifyboard(board){ // 글 수정을 하기 위한 함수 선언
    $.ajax({    
@@ -158,7 +160,7 @@ function modifyboard(board){ // 글 수정을 하기 위한 함수 선언
 function addAttach(addattach){
 	$.ajax({ 
 		type:"POST",
-		url:"/board/addAttach",
+		url:"/attach/addAttach",
 		data:JSON.stringify(addattach),
 		dataType:'json',
 		contentType:"application/json; charset=utf-8",
@@ -171,4 +173,3 @@ function addAttach(addattach){
 		}
 	})
 }
-

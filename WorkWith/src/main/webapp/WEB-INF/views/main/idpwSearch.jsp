@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아이디/비밀번호 찾기</title>
+<title>WorkWith-ID/PW SEARCH</title>
 <link rel="stylesheet" href="../../../resources/css/idpwSearch.css"
 	type="text/css">
 <script

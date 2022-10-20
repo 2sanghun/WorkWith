@@ -11,8 +11,6 @@
 <script type="text/javascript" src="../../../resources/js/uploadAjax.js"></script>
 <script type="text/javascript"
 	src="../../../resources/js/writeAttach.js"></script>
-
-
 </head>
 <body>
 	<%@ include file="../main/header.jsp"%>
@@ -46,9 +44,8 @@
 					</tr>
 				</table>
 
-				<textarea id="uploadResult" contentEditable="true"
+ 				<textarea id="uploadResult" contentEditable="true"
 					style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
-
 				<table>
 					<tr>
 						<td><label> 파일첨부 <input type="file" name="uploadFile"

@@ -54,7 +54,6 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	public int modify(BoardVO board) {
-		System.out.println(board);
 		int result = bm.modify(board);
 		return result;
 	}

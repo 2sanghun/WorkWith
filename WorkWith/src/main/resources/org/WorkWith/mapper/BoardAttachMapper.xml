@@ -11,7 +11,7 @@
 	</insert>
 	
 	<delete id="attachremove">
-    delete from boardattach where uuid=#{uuid};
+		delete from boardattach where uuid=#{uuid};
 	</delete>
 
 	<select id="attachlist" resultType="org.WorkWith.model.AttachFileVO">

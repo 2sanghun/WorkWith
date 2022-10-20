@@ -13,53 +13,49 @@
 	src="../../../resources/js/writeAttach.js"></script>
 </head>
 <body>
-	<%@ include file="../main/header.jsp"%>
+	<%@ include file="../main/header.jsp"%>	
 	<div id="content">
 		<form id="form">
-			<input type="hidden" id="id" value="${id}"> <input
-				type="hidden" name="bno" value="${detail.bno}">
+			<input type="hidden" name="bno" value="${detail.bno}">
 			<table border="1">
-				<thead>
-					<tr class="tr1">
-						<td colspan="4"><c:choose>
-								<c:when test="${id != detail.id}">
-									<input type="text" name="title" id="title"
-										value="${detail.title}" readonly>
-								</c:when>
-								<c:otherwise>
-									<input type="text" name="title" id="title"
-										value="${detail.title}">
-								</c:otherwise>
-							</c:choose> <span id="regdate"> ${detail.regdate}</span></td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="tr1">
-						<td colspan="4">
-							<div class="side">
-								<span class="title_name">${detail.name}</span> <span
-									class="title_position">${detail.position}</span>
-							</div>
+				<tr class="tr1">
+					<td colspan="4">
+						<c:choose>
+							<c:when test="${id != detail.id}">
+								<input type="text" name="title" id="title"
+									value="${detail.title}" readonly>
+							</c:when>
+							<c:otherwise>
+								<input type="text" name="title" id="title"
+									value="${detail.title}">
+							</c:otherwise>
+						</c:choose> <span id="regdate"> ${detail.regdate}</span></td>
+				</tr>
+				<tr class="tr1">
+					<td colspan="4">
+						<div class="side">
+							<span class="title_name">${detail.name}</span> <span
+								class="title_position">${detail.position}</span>
+						</div>
 
-							<div class="side_right">
-								조회 수 <span class="title_cnt">${detail.cnt}</span>
-							</div>
-						</td>
-					</tr>
+						<div class="side_right">
+							조회 수 <span class="title_cnt">${detail.cnt}</span>
+						</div>
+					</td>
+				</tr>
 
-					<tr>
-						<td colspan="4"><c:choose>
-								<c:when test="${id != detail.id}">
-									<textarea id="uploadResult" contentEditable="false"
-										style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
-								</c:when>
-								<c:otherwise>
-									<textarea id="uploadResult" contentEditable="true"
-										style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
-								</c:otherwise>
-							</c:choose></td>
-					</tr>
-				</tbody>
+				<tr>
+					<td colspan="4"><c:choose>
+							<c:when test="${id != detail.id}">
+								<textarea id="uploadResult" readonly
+									style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
+							</c:when>
+							<c:otherwise>
+								<textarea id="uploadResult" contentEditable="true"
+									style="min-height: 500px; min-width: 500px; height: auto;"></textarea>
+							</c:otherwise>
+						</c:choose></td>
+				</tr>
 			</table>
 			<div class="upload_file">
 				<c:choose>
@@ -90,6 +86,11 @@
 							onclick="if(!confirm('${detail.name}님의 게시물을 삭제 하시겠습니까?')){return false}"
 							formaction="/detail/remove" class="remove">
 						</span>
+					</c:when>
+					<c:when test="${id != detail.id}">
+						<span class="uploadlist">첨부 파일 목록</span>
+						<ul id="downfile"></ul>
+						<ul id="downimg"></ul>
 					</c:when>
 				</c:choose>
 			</div>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>WorkWith-SIGN UP</title>
 <link rel="stylesheet" href="../../../resources/css/signup.css" type="text/css">
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type="text/javascript" src="../../../resources/js/signup.js"></script>

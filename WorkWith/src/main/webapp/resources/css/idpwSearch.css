@@ -15,16 +15,14 @@
 
 #container {
 	text-align: center;
-    background-color: rgba( 255, 255, 255, 0.69 );
-    display: inline-block;
-    position: absolute;
-    right: 40%;
-    top: 30%;
-    margin: 10px;
-    padding: 10px;
-    height: 250px;
-    width: 400px;
-    border-radius: 10px;
+	background-color: rgba( 255, 255, 255, 0.69 );
+	position: relative;
+	top: 30%;
+	margin: auto;
+	padding: 10px;
+	height: 250px;
+	width: 400px;
+	border-radius: 10px;
 }
 
 .search_lab{

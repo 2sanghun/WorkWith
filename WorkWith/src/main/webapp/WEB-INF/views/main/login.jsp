@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LOGIN</title>
+<title>WorkWith</title>
 <link rel="stylesheet" href="../../../resources/css/login.css"
 	type="text/css">
 </head>
