@@ -15,4 +15,6 @@ public interface MemberMapper {
 
 	public void findPw(MemberVO member);
 	public int findPwCheck(MemberVO member);
+	
+	public MemberVO myInfo(MemberVO member);
 }

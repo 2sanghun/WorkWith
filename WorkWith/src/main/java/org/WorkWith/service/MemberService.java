@@ -21,4 +21,6 @@ public interface MemberService {
 	// 비밀번호 찾기(메일 관련)
 	public int findPwCheck(MemberVO member) throws Exception;
 	public void findPw(MemberVO member) throws Exception;
+	
+	public MemberVO myInfo(MemberVO member);
 }

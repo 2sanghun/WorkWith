@@ -82,5 +82,10 @@ public class BoardServiceImpl implements BoardService {
 	public int attachremove(AttachFileVO attach) {
 		return bam.attachremove(attach);
 	}
+	
+	// 내 게시글 조회
+	public ArrayList<BoardVO> myBoard(String id){
+		return bm.myBoard(id);
+	}
 
 }

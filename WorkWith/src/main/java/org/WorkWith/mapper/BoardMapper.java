@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.WorkWith.model.BoardVO;
 import org.WorkWith.model.CriteriaVO;
+import org.WorkWith.model.MemberVO;
 
 public interface BoardMapper {
 
@@ -29,4 +30,7 @@ public interface BoardMapper {
 
 	// 상세내용에 해당되는 내용을 삭제하는 DB작업 설계
 	public void remove(BoardVO board);
+	
+	// 내 게시글 가져는 작업
+	public ArrayList<BoardVO> myBoard(String id);
 }

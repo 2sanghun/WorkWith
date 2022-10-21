@@ -7,10 +7,12 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 #container{
 	position:relative;
 	top:100px;
 }
+
 header {
 	background-color: rgba(255, 255, 255, 0.9);
 	height: 70px;
@@ -29,7 +31,13 @@ header {
 a {
 	text-decoration: none;
 	color: black;
+	transition: 0.3s;
 }
+
+a:hover{
+	color:lightgray;
+}
+
 
 .logo {
 	margin-top: -10px;
@@ -80,8 +88,14 @@ header nav input:hover {
 	background-color: #353535;
 	border-radius: 50px;
 }
+#myPage{
+	position:absolute;
+	
+}
 
 header nav {
 	height: 90px;
-	line-height: 90px;
+	/* line-height: 90px; */
+	position: relative;
+	top: 30px;
 }

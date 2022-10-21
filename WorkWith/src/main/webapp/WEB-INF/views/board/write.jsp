@@ -52,8 +52,9 @@
 				<table>
 					<tr>
 						<td><label> 파일첨부 <input type="file" name="uploadFile"
-								id="uploadFile" multiple>
-						</label></td>
+								id="uploadFile" hidden="" multiple>
+						</label>
+						<div id="lookImage"></div></td>
 						<td style="text-align: left"><div id="uploadResult2"></div></td>
 					</tr>
 				</table>

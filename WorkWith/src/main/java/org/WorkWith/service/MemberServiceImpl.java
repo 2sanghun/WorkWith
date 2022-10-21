@@ -60,4 +60,8 @@ public class MemberServiceImpl implements MemberService{
 		mm.findPw(member);
 		
 	}
+	
+	public MemberVO myInfo(MemberVO member) {
+		return mm.myInfo(member);
+	}
 }

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+#container_myInfo{
+	height:1000px;
+	background:lightgray;
+	width:1000px;
+	position:relative;
+	right:500px;	
+}

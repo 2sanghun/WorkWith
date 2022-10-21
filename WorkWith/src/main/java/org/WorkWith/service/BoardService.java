@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.WorkWith.model.BoardVO;
 import org.WorkWith.model.CriteriaVO;
+import org.WorkWith.model.MemberVO;
 import org.WorkWith.model.AttachFileVO;
 
 public interface BoardService {
@@ -33,4 +34,6 @@ public interface BoardService {
 	public ArrayList<AttachFileVO> attachlist(int bno);
 
 	public int attachremove(AttachFileVO attach);
+	
+	public ArrayList<BoardVO> myBoard(String id);
 }

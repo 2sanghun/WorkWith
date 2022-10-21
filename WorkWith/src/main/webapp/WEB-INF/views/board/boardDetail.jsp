@@ -62,17 +62,21 @@
 			<div class="upload_file">
 				<c:choose>
 					<c:when test="${id == detail.id}">
-						<div id="uploadlist">
-							<span class="uploadlist">첨부된 파일 목록</span>
-							<ul id="atfile"></ul>
-							<ul id="atimg"></ul>
-							<!-- 업로드하기 전 확인 목록 -->
-							<div class="form-group uploadDiv">
-								<label> 파일 첨부 <input type="file" name="uploadFile"
-									id="uploadFile" hidden="" multiple>
-								</label> <input type="button" value="파일 업로드" id="addfile">
-								<span id="uploadResult2"></span>
+						<div id="uploadlist_1">
+							<span class="uploadlist">첨부된 파일 목록</span><br>
+							<div id="uploadlist">
+								<ul id="atfile"></ul>
+								<ul id="atimg"></ul>
 							</div>
+						</div>
+						<!-- 업로드하기 전 확인 목록 -->
+						<div class="form-group uploadDiv">
+							<span class="uploadlist">첨부할 파일 목록</span>
+							<div id="uploadResult2"></div>
+							<label> 파일 첨부 <input type="file" name="uploadFile"
+								id="uploadFile" hidden="" multiple>
+							</label> <input type="button" value="파일 업로드" id="addfile">
+							<div id="lookImage"></div>
 						</div>
 						<span class="modifybtn_box"> <input type='button'
 							value='수정' id="modify"> <input type="submit" value="삭제"
@@ -88,9 +92,13 @@
 						</span>
 					</c:when>
 					<c:when test="${id != detail.id}">
-						<span class="uploadlist">첨부 파일 목록</span>
-						<ul id="downfile"></ul>
-						<ul id="downimg"></ul>
+						<div id="AttachList_other">
+							<span class="uploadlist">첨부 파일 목록</span>
+							<div id="down">
+								<ul id="downfile"></ul>
+								<ul id="downimg"></ul>
+							</div>
+						</div>
 					</c:when>
 				</c:choose>
 			</div>

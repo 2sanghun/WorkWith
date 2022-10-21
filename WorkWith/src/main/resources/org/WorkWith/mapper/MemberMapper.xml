@@ -27,4 +27,7 @@
 	<select id="emplno" resultType="int">
 		select count(*) from member where emplno like CONCAT(#{emplno},'%');
 	</select>
+	<select id="myInfo" resultType="org.WorkWith.model.MemberVO">
+		select * from member where id=#{id};
+	</select>
 </mapper>

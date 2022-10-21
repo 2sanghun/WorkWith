@@ -27,33 +27,12 @@
 					<p id="categorylist">${paging.cri.category}</p>
 				</c:otherwise>
 			</c:choose>
-
-
-			<div class="align">
-				<div class="sortby">
-					<span id="pageNum" class="listcount">${paging.cri.amount}개씩</span>
-					<ul>
-						<li><a
-							href="/board/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=5"
-							id="pageNum" class="listnum">5개씩</a></li>
-						<li><a
-							href="/board/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=10"
-							id="pageNum" class="listnum">10개씩</a></li>
-						<li><a
-							href="/board/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=15"
-							id="pageNum" class="listnum">15개씩</a></li>
-						<li><a
-							href="/board/board?category=${paging.cri.category}&period=${paging.cri.period}&type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=1&amount=20"
-							id="pageNum" class="listnum">20개씩</a></li>
-					</ul>
-				</div>
-			</div>
-
 			<table>
 				<tr id="tr1">
 					<td class="bno"><span>게시판</span></td>
 					<td class="title"><span>제목</span></td>
 					<td class="name"><span>글쓴이</span></td>
+					<td class="position"><span>직책</span></td>
 					<td class="regdate"><span>작성일</span></td>
 					<td class="cnt"><span>조회수</span></td>
 				</tr>
@@ -67,6 +46,7 @@
 							<td class="title"><a
 								href="../board/boardDetail?bno=${Noticelist.bno}">${Noticelist.title}</a></td>
 							<td class="name">${Noticelist.name}</td>
+							<td class="position">${Noticelist.position}</td>
 							<td class="regdate">${Noticelist.regdate}</td>
 							<td class="cnt">${Noticelist.cnt}</td>
 						</tr>
@@ -81,6 +61,7 @@
 						<td class="title"><a
 							href="../board/boardDetail?bno=${boardlist.bno}">${boardlist.title}</a></td>
 						<td class="name">${boardlist.name}</td>
+						<td class="position">${boardlist.position}</td>
 						<td class="regdate">${boardlist.regdate}</td>
 						<td class="cnt">${boardlist.cnt}</td>
 					</tr>

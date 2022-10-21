@@ -1,9 +1,4 @@
 @charset "UTF-8";
-
-body{
-		font-family: 'Kakaofont';
-}
-
 #container {
 	width: 1000px;
 	height: 1050px;
@@ -15,11 +10,12 @@ body{
 }
 
 #writecss {
-	background: linear-gradient(to right, #70e1f5, #eaecc6);
+	background: linear-gradient(to right, #232526, #414345);
 	padding: 20px;
 	height: 80px;
 	line-height: 80px;
 	margin-top: 20px;
+	color: white;
 }
 li{
 	list-style:none;
@@ -30,7 +26,15 @@ table {
 	position: relative;
 }
 
-#mid td select {
+#mid select {
+	border: 1px solid gray;
+	border-radius: 10px;
+	outline: none;
+	height: 40px;
+	padding: 10px 10px 10px 10px;
+	font-size: 18px;
+	float: left;
+	text-align: center;
 	width: 100px;
 }
 
@@ -50,26 +54,13 @@ table {
 	margin-right: 3px;
 }
 
-select {
-	cursor: pointer;
-	border: 1px solid gray;
-	border-radius: 10px;
-	outline: none;
-	height: 40px;
-	padding: 8px 10px 10px 10px;
-	font-size: 18px;
-	float: left;
-	font-family: 'Kakaofont';
 
-}
 
 #uploadtitle {
 	border: 1px solid gray;
 	border-radius: 4px;
 	padding: 10px;
 	font-size: 13px;
-	font-family: 'Kakaofont';
-
 }
 
 #uploadResult {
@@ -77,16 +68,15 @@ select {
 	border-radius: 4px;
 	padding: 10px;
 	font-size: 13px;
-	font-family: 'Kakaofont';
 }
 
 label {
 	float: left;
 	border: none;
 	border-radius: 8px;
-	color: #2BC0E4;
+	color: #8041D9;
 	background-color: white;
-	border: 1px solid #2BC0E4;
+	border: 1px solid #8041D9;
 	padding: 20px;
 	margin-left: 5px;
 	font-size: 14px;
@@ -95,13 +85,32 @@ label {
 }
 
 label:hover {
-	cursor: pointer;
 	color: white;
-	background-color: #2BC0E4;
+	background-color: #8041D9;
 }
 
 #mid {
 	text-align: center;
+}
+#lookImage {
+    position: absolute;
+}
+#lookImage img {
+    position: relative;
+    top: -20px;
+    left: 790px;
+}
+div#uploadResult2 {
+    list-style-type: none;
+    border: 1px solid black;
+    height: 100px;
+    overflow: scroll;
+    width: 600px;
+}
+
+#button {
+    position: relative;
+    top: 20px;
 }
 
 .button {
@@ -115,11 +124,11 @@ label:hover {
 	font-size: 18px;
 	font-weight: bold;
 	margin: 5px;
-	font-family: 'Kakaofont';
+	transition:0.3s;
 }
 
 .button:hover {
 	cursor: pointer;
-	border: 2px solid #2BC0E4;
-	color: #2BC0E4;
+	color: white;
+	background:#8041D9
 }
