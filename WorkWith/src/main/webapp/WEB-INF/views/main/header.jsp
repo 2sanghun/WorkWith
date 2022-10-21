@@ -43,7 +43,7 @@
 			<div id="myPage">
 			<input type="button" value="내 정보" id="myInfo_toggle">
 			<input type="button" value="내 글" id="myBoard_toggle">
-				<div id="myInfo">
+				<div id="myInfo" style="display:none;">
 	  				<%@ include file="../myPage/myInfo.jsp"%></div>
 	  			<div id="myBoard" style="display:none;">
 	  				<%@ include file="../myPage/myBoard.jsp"%></div></div>
