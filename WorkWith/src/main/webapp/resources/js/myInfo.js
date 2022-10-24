@@ -12,15 +12,4 @@ $(document).ready(function() {
 		$("#myInfo_startdate").val(myInfo.startdate);
 		$("#myInfo_emplno").val(myInfo.emplno);
 	});
-	
-	$("#myInfo_toggle").on("click", function(){
-		$("#myBoard").hide();
-		$("#myInfo").show();
-	})
-	
-	$("#myBoard_toggle").on("click", function(){
-		$("#myInfo").hide();
-		$("#myBoard").show();
-	})
-	
 });

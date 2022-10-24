@@ -64,4 +64,12 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO myInfo(MemberVO member) {
 		return mm.myInfo(member);
 	}
+	
+	public int PwCheck(MemberVO member) {
+		return mm.PwCheck(member);
+	}
+	
+	public void newPw(MemberVO member) {
+		mm.newPw(member);
+	}
 }

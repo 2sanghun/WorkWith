@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../../../resources/css/header.css"
 	type="text/css">
 <script type="text/javascript" src="/resources/js/header.js"></script>
-	
+
 </head>
 <body>
 	<%
@@ -39,16 +39,13 @@
 						value="인사관리" class="headerbtn_mypage"></a>
 				</c:when>
 			</c:choose>
-			<input type="button" id="myPage_toggle" value="마이페이지" class="headerbtn_mypage">
-			<div id="myPage">
-			<input type="button" value="내 정보" id="myInfo_toggle">
-			<input type="button" value="내 글" id="myBoard_toggle">
-				<div id="myInfo" style="display:none;">
-	  				<%@ include file="../myPage/myInfo.jsp"%></div>
-	  			<div id="myBoard" style="display:none;">
-	  				<%@ include file="../myPage/myBoard.jsp"%></div></div>
-			<a href="../main/logout"> 
-			<input type="button" value="로그아웃" class="headerbtn"></a>
+			<a href="../payment/payment"><input type="button" value="결재"
+				class="headerbtn_mypage"></a> <input type="button"
+				id="myPage_toggle" value="내 정보" class="headerbtn_mypage">
+			<div id="myPage" style="display: none;">
+				<%@ include file="../myPage/myInfo.jsp"%></div>
+			<a href="../main/logout"> <input type="button" value="로그아웃"
+				class="headerbtn"></a>
 			<%
 				}
 			%>

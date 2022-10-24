@@ -23,4 +23,8 @@ public interface MemberService {
 	public void findPw(MemberVO member) throws Exception;
 	
 	public MemberVO myInfo(MemberVO member);
+	
+	public int PwCheck(MemberVO member);
+	
+	public void newPw(MemberVO member);
 }

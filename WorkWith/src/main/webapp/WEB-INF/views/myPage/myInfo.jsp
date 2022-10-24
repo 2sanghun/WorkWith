@@ -12,18 +12,53 @@
 <script type="text/javascript" src="/resources/js/myInfo.js"></script>
 </head>
 <body>
-	<div id="container_myInfo" style="background: lightgray; height: 400px; width: 300px;">
-		<input type="text" value="${id }" id="myId" hidden="true">
-		<input type="text" class="myInfo" id="myInfo_id">
-		<input type="text" class="myInfo" id="myInfo_name">
-		<input type="text" class="myInfo" id="myInfo_position">
-		<input type="text" class="myInfo" id="myInfo_department">
-		<input type="text" class="myInfo" id="myInfo_phone">
-		<input type="text" class="myInfo" id="myInfo_addr">
-		<input type="text" class="myInfo" id="myInfo_email">
-		<input type="text" class="myInfo" id="myInfo_birth">
-		<input type="text" class="myInfo" id="myInfo_startdate">
-		<input type="text" class="myInfo" id="myInfo_emplno">
+	<input type="text" value="${id }" id="myId" hidden="true">
+	<div id="container_myInfo">
+		<table>
+			<tr>
+				<td><span>사원번호</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_emplno" readonly>
+				</td>
+			</tr>
+			<tr>
+				<td><span>부서</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_department" readonly></td>
+			</tr>
+			<tr>
+				<td><span>이름</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_name" readonly></td>
+			</tr>
+			<tr>
+				<td><span>직책</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_position"readonly></td>
+			</tr>
+			<tr>
+				<td>입사일</td>
+				<td><input type="text" class="myInfo" id="myInfo_startdate" readonly></td>
+			</tr>
+			<tr>
+				<td><span>ID</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_id" readonly></td>
+			</tr>
+			<tr>
+				<td><span>전화번호</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_phone" readonly></td>
+			</tr>
+			<tr>
+				<td><span>주소</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_addr" readonly></td>
+			</tr>
+			<tr>
+				<td><span>이메일</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_email" readonly></td>
+			</tr>
+			<tr>
+				<td><span>생년월일</span></td>
+				<td><input type="text" class="myInfo" id="myInfo_birth" readonly></td>
+			</tr>
+		</table>
+		<a href="../myPage/myBoard">내 글</a>
+		<a href="../myPage/pwChange">비밀번호 변경</a>
 	</div>
 </body>
 </html>

@@ -76,7 +76,7 @@ public class MainController {
 		member.setPhone(member.getPhone().replace(",", "-"));
 		member.setAddr(member.getAddr().replace(",", "/"));
 		ms.signup(member);
-		return "/main/login";
+		return "redirect:/main/login";
 	}
 
 	@RequestMapping(value = "/main/idpwSearch", method = RequestMethod.GET)
@@ -84,7 +84,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/main/idsearch", method = RequestMethod.POST)
-	public String idsearch(MemberVO member, HttpServletResponse response) throws IOException {
+	public void idsearch(MemberVO member, HttpServletResponse response) throws IOException {
 		String id = ms.idsearch(member);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -100,31 +100,31 @@ public class MainController {
 			} else {
 				serid = id.substring(0, a) + b + "*";
 			}
-			out.println("<script>alert('아이디:" + serid + "'); </script>");
+			out.println("<script>alert('아이디:" + serid + "'); location.href='/main/login'</script>");
 			out.flush();
-			return "main/login";
+			out.close();
 		} else {
-			out.println("<script>alert('아이디를 찾을 수 없습니다.'); </script>");
+			out.println("<script>alert('아이디를 찾을 수 없습니다.'); location.href='/main/idpwSearch'</script>");
 			out.flush();
-			return "main/idpwSearch";
+			out.close();
 		}
 	}
 
 	// 현재 다음에만 메일이 전송됨
 	@RequestMapping(value = "/main/pwsearch", method = RequestMethod.POST)
-	public String pwsearch(MemberVO member, HttpServletResponse response) throws Exception {
+	public void pwsearch(MemberVO member, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if (ms.findPwCheck(member) == 0) {
-			out.println("<script>alert('아이디와 이메일을 확인해 주세요'); </script>");
+			out.println("<script>alert('아이디와 이메일을 확인해 주세요'); location.href='/main/idpwSearch'</script>");
 			out.flush();
-			return "main/idpwSearch";
+			out.close();
 		} else {
 			ms.findPw(member);
-			out.println("<script>alert('이메일에서 임시 비밀번호를 확인해주세요.'); </script>");
+			out.println("<script>alert('이메일에서 임시 비밀번호를 확인해주세요.'); location.href='/main/login'</script>");
 			out.flush();
-			return "main/login";
+			out.close();
 		}
 	}
 }
