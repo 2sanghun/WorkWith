@@ -65,9 +65,6 @@
 						</when>
 					</choose>
 				</if>
-				<if test="keyword==null or keyword == ''">
-					and category != "공지"
-				</if>
 			</when>
 			<otherwise>
 				where bno > 0
@@ -108,9 +105,6 @@
 						</when>
 					</choose>
 				</if>
-				<if test="keyword==null or keyword == ''">
-					and category != "공지"
-				</if>
 			</otherwise>
 		</choose>
 		order by bno desc) as boardlist
@@ -132,6 +126,9 @@
 		<choose>
 			<when test="category != null and !category.equals('')">
 				where category=#{category}
+				<if test="id!=null">
+					and id=#{id}
+				</if>
 				<if test="keyword!=null">
 					<choose>
 						<when test="period == 'day'.toString()">
@@ -168,13 +165,13 @@
 							content like concat('%',#{keyword},'%'))
 						</when>
 					</choose>
-				</if>
-				<if test="keyword==null or keyword == ''">
-					and category != "공지"
 				</if>
 			</when>
 			<otherwise>
 				where bno>0
+				<if test="id!=null">
+					and id=#{id}
+				</if>
 				<if test="keyword!=null">
 					<choose>
 						<when test="period == 'day'.toString()">
@@ -211,17 +208,15 @@
 							content like concat('%',#{keyword},'%'))
 						</when>
 					</choose>
-				</if>
-				<if test="keyword==null or keyword == ''">
-					and category != "공지"
 				</if>
 			</otherwise>
 		</choose>
 	</select>
 
-	<select id="detail" resultType="org.WorkWith.model.BoardVO" >
+	<select id="detail" resultType="org.WorkWith.model.BoardVO">
 		select * from
-		board where bno=#{bno}
+		board where
+		bno=#{bno}
 	</select>
 
 	<update id="cntup"> update board set cnt = cnt + 1 where bno = #{bno}
@@ -232,8 +227,50 @@
 	</update>
 
 	<delete id="remove"> delete from board where bno=#{bno} </delete>
-	
+
 	<select id="myBoard" resultType="org.WorkWith.model.BoardVO">
-		select * from board where id=#{id};
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum, boardlist.*
+		from(
+		select
+		b.* from board b, (select @rownum:=0) as tmp
+		where id=#{id}
+		<if test="keyword!=null">
+			<choose>
+				<when test="period == 'day'.toString()">
+					and (regdate between date_ADD(now(), interval -1
+					day) and now())
+				</when>
+				<when test="period == 'week'.toString()">
+					and (regdate between date_ADD(now(), interval -1
+					week) and now())
+				</when>
+				<when test="period == 'month'.toString()">
+					and (regdate between date_ADD(now(), interval -1
+					month) and now())
+				</when>
+				<when test="period == 'sixMonth'.toString()">
+					and (regdate between date_ADD(now(), interval -6
+					month) and now())
+				</when>
+				<when test="period == 'year'.toString()">
+					and (regdate between date_ADD(now(), interval -1
+					year) and now())
+				</when>
+			</choose>
+			<choose>
+				<when test="type == 'TC'.toString()">
+					and (title like concat('%',#{keyword},'%')
+					or
+					content like concat('%',#{keyword},'%'))
+				</when>
+			</choose>
+		</if>
+		order by bno desc) as boardlist
+		) as bllist
+		<![CDATA[
+		where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+		]]>
 	</select>
 </mapper>

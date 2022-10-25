@@ -32,5 +32,5 @@ public interface BoardMapper {
 	public void remove(BoardVO board);
 	
 	// 내 게시글 가져는 작업
-	public ArrayList<BoardVO> myBoard(String id);
+	public ArrayList<BoardVO> myBoard(CriteriaVO cri);
 }

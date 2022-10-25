@@ -35,5 +35,5 @@ public interface BoardService {
 
 	public int attachremove(AttachFileVO attach);
 	
-	public ArrayList<BoardVO> myBoard(String id);
+	public ArrayList<BoardVO> myBoard(CriteriaVO cri);
 }

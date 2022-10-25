@@ -84,8 +84,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	// 내 게시글 조회
-	public ArrayList<BoardVO> myBoard(String id){
-		return bm.myBoard(id);
+	public ArrayList<BoardVO> myBoard(CriteriaVO cri){
+		return bm.myBoard(cri);
 	}
 
 }

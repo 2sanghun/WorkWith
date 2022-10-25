@@ -4,15 +4,19 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.WorkWith.model.BoardVO;
+import org.WorkWith.model.CriteriaVO;
 import org.WorkWith.model.MemberVO;
+import org.WorkWith.model.pageVO;
 import org.WorkWith.service.BoardService;
 import org.WorkWith.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,10 +35,17 @@ public class MyPageController {
 		my.setAddr(my.getAddr().replace("/", " "));
 		return new ResponseEntity<>(my, HttpStatus.OK);
 	}
-
-	@RequestMapping(value = "/myBoard", method = RequestMethod.GET)
-	public ResponseEntity<ArrayList<BoardVO>> myBoard(String id) {
-		return new ResponseEntity<>(bs.myBoard(id), HttpStatus.OK);
+	
+	@RequestMapping(value = "/myPage/myBoard", method = RequestMethod.GET)
+	public void myBoardpage(HttpSession session, Model model, CriteriaVO cri) {
+		String id = (String) session.getAttribute("id");
+		cri.setType("TC");
+		cri.setId(id);
+		System.out.println(cri);
+		model.addAttribute("myBoard",bs.myBoard(cri));
+		int total= bs.total(cri);
+		System.out.println(total);
+		model.addAttribute("paging", new pageVO(cri, total));
 	}
 	
 	@RequestMapping(value = "/myPage/pwChange", method = RequestMethod.GET)
