@@ -8,15 +8,16 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script type="text/javascript" src="../../../resources/js/myBoard.js"></script>-->
+<script type="text/javascript" src="../../../resources/js/myBoard.js"></script>
 </head>
 <body>
 	<div id="container">
 		<h1 class="title">내 글 페이지</h1>
 		<div class="nav">
-			<form id="searchForm" action="/memModify" method="get">
+			<form id="searchForm" action="/myPage/myBoard" method="get">
 				<div id="searchAll">
-					<select class="search" name="period">
+				<input type="hidden" value="${paging.cri.period}" id="selected_period">
+					<select id="myBoard_time" name="period">
 						<option value="total">전체기간</option>
 						<option value="day">1일</option>
 						<option value="week">1주</option>
@@ -24,7 +25,7 @@
 						<option value="sixMonth">6개월</option>
 						<option value="year">1년</option>
 					</select> <input type="text" name="keyword" class="search_bar"
-						placeholder="검색어를 입력해주세요"> <input type="button"
+						placeholder="검색어를 입력해주세요"> <input type="submit"
 						class="search_btn" value="검색">
 				</div>
 				<div>

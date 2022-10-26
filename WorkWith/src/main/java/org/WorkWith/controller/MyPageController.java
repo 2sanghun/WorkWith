@@ -1,12 +1,10 @@
 package org.WorkWith.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.WorkWith.model.BoardVO;
 import org.WorkWith.model.CriteriaVO;
 import org.WorkWith.model.MemberVO;
 import org.WorkWith.model.pageVO;
@@ -41,10 +39,9 @@ public class MyPageController {
 		String id = (String) session.getAttribute("id");
 		cri.setType("TC");
 		cri.setId(id);
-		System.out.println(cri);
+		System.out.println(cri.getKeyword());
 		model.addAttribute("myBoard",bs.myBoard(cri));
 		int total= bs.total(cri);
-		System.out.println(total);
 		model.addAttribute("paging", new pageVO(cri, total));
 	}
 	
