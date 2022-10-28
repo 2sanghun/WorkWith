@@ -13,3 +13,7 @@ $(document).ready(function() {
 		$("#myInfo_emplno").val(myInfo.emplno);
 	});
 });
+
+function showPw(){
+	var pwPopup= window.open("../myPage/pwChange","비밀번호 변경", "width=500,height=300, left=300, top=200");
+}

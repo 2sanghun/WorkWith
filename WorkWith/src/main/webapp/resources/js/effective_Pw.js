@@ -45,7 +45,6 @@ function pwSubmit() {
 		alert("비밀번호를 재확인 해주세요.");
 		return false;
 	}
-	alert("가입이 완료 되었습니다.");
 	return true;
 	;
 };

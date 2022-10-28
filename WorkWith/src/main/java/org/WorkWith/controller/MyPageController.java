@@ -60,7 +60,7 @@ public class MyPageController {
 		}else {
 			member.setPassword(newPw);
 			ms.newPw(member);
-			out.println("<script>alert('비밀번호가 변경되었습니다.'); location.href='/board/board'</script>");
+			out.println("<script>alert('비밀번호가 변경되었습니다.'); window.close();</script>");
 			out.flush();
 			out.close();
 		}

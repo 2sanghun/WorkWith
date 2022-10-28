@@ -1,45 +1,59 @@
 @charset "UTF-8";
 
-#container_myInfo{
+#container_myInfo {
 	height: 570px;
 	width: 400px;
-	background:lightgray;
-	border-radius:20px;
-	position:relative;
-	top:10px
+	background: lightgray;
+	border-radius: 20px;
+	position: relative;
+	top: 10px
 }
 
 #container_myInfo table {
-	position:relative;
-	left:10px;
-	top:10px;	
+	position: relative;
+	left: 10px;
+	top: 10px;
 }
 
 #container_myInfo td {
-    height: 30px;
-    border-bottom: 1px solid #eee;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 10px;
+	height: 30px;
+	border-bottom: 1px solid #eee;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 10px;
 }
 
-#container_myInfo input{
-	border:0;
-	background:lightgray;
+#container_myInfo table input {
+	border: 0;
+	background: lightgray;
 	width: 250px;
 }
 
-#container_myInfo a{
-	position:relative;
-	left: 190px;
-	top: 10px;
-	margin: 15px;
-    text-decoration: none;
-    color: black;
-    transition: 0.3s;
+#container_myInfo a {
+	position: relative;
+	left: 230px;
+	text-decoration: none;
+	color: black;
+	transition: 0.3s;
 }
 
-#container_myInfo a:hover{
-	color:#8041D9;	
+#container_myInfo a:hover {
+	color: #8041D9;
+}
+
+#pwChange_toggle {
+	position: relative;
+	left: 230px;
+	margin: 15px;
+	text-decoration: none;
+	color: black;
+	transition: 0.3s;
+	width: 100px;
+	background: lightgray;
+	border: 0;
+}
+
+#pwChange_toggle:hover{
+	color: #8041D9;
 }

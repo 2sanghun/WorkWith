@@ -58,7 +58,7 @@
 			</tr>
 		</table>
 		<a href="../myPage/myBoard">내 글</a>
-		<a href="../myPage/pwChange">비밀번호 변경</a>
+		<input type="button" id="pwChange_toggle" value="비밀번호 변경" onclick="showPw();">
 	</div>
 </body>
 </html>

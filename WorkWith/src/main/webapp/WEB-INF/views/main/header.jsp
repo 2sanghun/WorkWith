@@ -35,12 +35,12 @@
 			<c:choose>
 				<c:when test="${position.equals('사장') || position.equals('부사장')}">
 					<!-- 직책이 사장, 부사장일 경우 마이페이지 대신 관리자 버튼 -->
-					<a href="../manage/memberManage"> <input type="button"
-						value="인사관리" class="headerbtn_mypage"></a>
+					<input type="button" value="인사관리" class="headerbtn_mypage"
+						onclick="showManage()">
 				</c:when>
 			</c:choose>
-			<a href="../payment/payment"><input type="button" value="결재"
-				class="headerbtn_mypage"></a> <input type="button"
+			<input type="button" value="결재" class="headerbtn_mypage"
+				onclick="showPayment()"> <input type="button"
 				id="myPage_toggle" value="내 정보" class="headerbtn_mypage">
 			<div id="myPage" style="display: none;">
 				<%@ include file="../myPage/myInfo.jsp"%></div>
