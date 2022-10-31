@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
 			pwmsg.innerHTML = "";
 		} else {
 			pwmsg.innerHTML = "* 8~16자 영문, 숫자, 특수문자를 사용하세요.";
-			pwmsg.style.color = "gray";
+			pwmsg.style.color = "red";
 		}
 	}
 
@@ -24,7 +24,7 @@ window.addEventListener('load', function() {
 			remsg.innerHTML = "";
 		} else {
 			remsg.innerHTML = "* 비밀번호가 일치하지 않습니다.";
-			remsg.style.color = "gray";
+			remsg.style.color = "red";
 		}
 	}
 
