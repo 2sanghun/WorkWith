@@ -54,7 +54,7 @@ public class MyPageController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if(ms.PwCheck(member)==0) {
-			out.println("<script>alert('비밀번호를 확인해 주세요.'); location.href='/myPage/pwChange'</script>");
+			out.println("<script>alert('현재 비밀번호를 확인해 주세요.'); location.href='/myPage/pwChange'</script>");
 			out.flush();
 			out.close();
 		}else {
