@@ -23,6 +23,8 @@ public class MemberVO {
 	
 	private String birth;
 	
+	private int quit;
+	
 	private int cnt;
 
 
@@ -122,11 +124,20 @@ public class MemberVO {
 	public void setEmplno(String emplno) {
 		this.emplno = emplno;
 	}
-	
+
+	public int getQuit() {
+		return quit;
+	}
+
+	public void setQuit(int quit) {
+		this.quit = quit;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", department=" + department + ", position=" + position + ", emplno=" + emplno
 				+ ", password=" + password + ", addr=" + addr + ", phone=" + phone + ", email=" + email + ", name="
-				+ name + ", startdate=" + startdate + ", birth=" + birth + ", cnt=" + cnt + "]";
+				+ name + ", startdate=" + startdate + ", birth=" + birth + ", quit=" + quit + ", cnt=" + cnt + "]";
 	}
+	
 }
