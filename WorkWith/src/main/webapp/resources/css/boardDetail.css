@@ -11,6 +11,7 @@
 	position: relative;
 	top: 90px;
 }
+
 #form table {
 	width: 1000px;
 	border-collapse: collapse;
@@ -70,7 +71,7 @@
 	padding: 10px;
 }
 
-.title_cnt{
+.title_cnt {
 	font-weight: bold;
 }
 
@@ -81,6 +82,7 @@
 	width: 958px;
 	overflow-y: hidden;
 	border: 1px solid black;
+	overflow: auto;
 }
 
 #uploadResult>ul>li {
@@ -112,49 +114,54 @@ input {
 }
 
 #atfile input[type="button"] {
-    transition: 0.3s;
+	transition: 0.3s;
 }
 
 #atfile input[type="button"]:hover {
-    background: #8041D9;
-    color: white;
+	background: #8041D9;
+	color: white;
 }
 
 #atimg {
-    display: flex;
-    list-style: none;
+	display: flex;
+	list-style: none;
 }
+
 #atimg li {
-    height: 100px;
-    width: 150px;
+	height: 100px;
+	width: 150px;
 }
+
 #atimg input[type="button"] {
-    position: relative;
-    bottom: 29px;
-    right: -120px;
-    transition: 0.3s;
+	position: relative;
+	bottom: 29px;
+	right: -120px;
+	transition: 0.3s;
 }
+
 #atimg input[type="button"]:hover {
-    background: #8041D9;
-    color: white;
+	background: #8041D9;
+	color: white;
 }
+
 #atimg img {
-    height: 70px;
-    width: 140px;
-    margin: 5px;
+	height: 70px;
+	width: 140px;
+	margin: 5px;
 }
+
 #uploadlist_1 {
-    margin: auto;
-    display: table;
-    position: relative;
+	margin: auto;
+	display: table;
+	position: relative;
 }
 
 #uploadResult2 {
-    list-style-type: none;
-    border: 1px solid black;
-    height: 100px;
-    overflow: scroll;
-    width: 600px;
+	list-style-type: none;
+	border: 1px solid black;
+	height: 100px;
+	overflow: scroll;
+	width: 600px;
 }
 
 .uploadDiv {
@@ -194,16 +201,19 @@ label:hover {
 	width: 1000px;
 	margin: auto;
 }
+
 #lookImage {
-    position: absolute;
-    top: -140px;
-    left: 850px;
+	position: absolute;
+	top: -140px;
+	left: 850px;
 }
+
 #lookImage img {
-    position: relative;
-    top: 164px;
-    right: 215px;
+	position: relative;
+	top: 164px;
+	right: 215px;
 }
+
 .uploadlist {
 	font-weight: bold;
 }
@@ -227,28 +237,29 @@ label:hover {
 }
 
 #AttachList_other {
-    margin: auto;
-    display: table;
-    position: relative;
-    right: 150px;
+	margin: auto;
+	display: table;
+	position: relative;
+	right: 150px;
 }
 
 #down {
-    width: 700px;
-    margin: auto;
+	width: 700px;
+	margin: auto;
 }
+
 #downimg {
-    display: flex;
-    align-items: flex-end;
-    list-style: none;
-    overflow: scroll;
-    width: 1000px;
+	display: flex;
+	align-items: flex-end;
+	list-style: none;
+	overflow: scroll;
+	width: 1000px;
 }
 
 #downimg img {
-    padding: 10px;
-    height: 70px;
-    width: 140px;
+	padding: 10px;
+	height: 70px;
+	width: 140px;
 }
 
 .modifybtn_box {

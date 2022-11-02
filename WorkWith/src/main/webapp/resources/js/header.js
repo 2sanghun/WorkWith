@@ -5,9 +5,9 @@ $(document).ready(function() {
 });
 
 function showManage(){
-	var managePopup= window.open("../manage/memberManage","인사관리", "width=500,height=500, left=300, top=200");
+	var managePopup= window.open("../manage/memberManage","인사관리", "width=1300,height=800, left=200, top=100");
 }
 
 function showPayment(){
-	var paymentPopup= window.open("../payment/payment","전자 결재", "width=500,height=500, left=300, top=200");
+	var paymentPopup= window.open("../payment/payment","전자 결재", "width=1300,height=800, left=250, top=150");
 }

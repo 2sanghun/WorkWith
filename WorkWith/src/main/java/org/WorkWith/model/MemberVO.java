@@ -21,6 +21,8 @@ public class MemberVO {
 	
 	private String startdate;
 	
+	private String enddate;
+	
 	private String birth;
 	
 	private int quit;
@@ -133,11 +135,21 @@ public class MemberVO {
 		this.quit = quit;
 	}
 
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", department=" + department + ", position=" + position + ", emplno=" + emplno
 				+ ", password=" + password + ", addr=" + addr + ", phone=" + phone + ", email=" + email + ", name="
-				+ name + ", startdate=" + startdate + ", birth=" + birth + ", quit=" + quit + ", cnt=" + cnt + "]";
+				+ name + ", startdate=" + startdate + ", enddate=" + enddate + ", birth=" + birth + ", quit=" + quit
+				+ ", cnt=" + cnt + "]";
 	}
+	
 	
 }
