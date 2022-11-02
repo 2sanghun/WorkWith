@@ -12,7 +12,7 @@
 	src="../../../resources/js/memberManage.js"></script>
 <link rel="stylesheet" href="../../../resources/css/memberManage.css"
 	type="text/css">
-</head>
+</head> 
 <body>
 	<div id=container_memberManage>
 		<span id="memberManage_button">인사관리</span> <span
@@ -46,7 +46,7 @@
 				<div id="simpleData"></div>
 			</div>
 			<div style="flex: 3" id="memberData_detail">|||||</div>
-		</div>
+		</div> 
 		<div id="signupManage" style="display: none">
 			<div style="flex: 2" id="signupData_simple">
 				<div id="signupManage_search">
