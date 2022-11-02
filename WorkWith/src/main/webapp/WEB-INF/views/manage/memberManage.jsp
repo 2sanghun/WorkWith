@@ -46,7 +46,7 @@
 				<div id="simpleData"></div>
 			</div>
 			<div style="flex: 3" id="memberData_detail">|||||</div>
-		</div> 
+		</div>
 		<div id="signupManage" style="display: none">
 			<div style="flex: 2" id="signupData_simple">
 				<div id="signupManage_search">
