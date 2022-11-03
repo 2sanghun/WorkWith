@@ -5,10 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="../../../resources/css/myInfo.css"
-	type="text/css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="../../../resources/css/myInfo.css" type="text/css">
 <script type="text/javascript" src="/resources/js/myInfo.js"></script>
 </head>
 <body>

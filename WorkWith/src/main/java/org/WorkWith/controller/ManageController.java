@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ManageController {
 	
-	@RequestMapping(value = "/manage/memberManage", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage/manage", method = RequestMethod.GET)
 	public void memberManage() {
 	}
 }

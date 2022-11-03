@@ -1,0 +1,18 @@
+@charset "UTF-8"; 
+body{
+	margin:0px;
+	padding:0px;
+}
+
+#memberManage_button,#signupManage_button,#quitManage_button{
+	margin:10px;
+}
+
+#memberManage,#signupManage,#quitManage{
+	border-top: solid black 3px;
+}
+
+#memberData_simple,#signupData_simple,#quitData_simple{
+	height:775px;
+	border-right: solid black 3px;
+}

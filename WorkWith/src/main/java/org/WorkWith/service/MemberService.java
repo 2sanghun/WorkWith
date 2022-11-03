@@ -22,9 +22,12 @@ public interface MemberService {
 	public int findPwCheck(MemberVO member) throws Exception;
 	public void findPw(MemberVO member) throws Exception;
 	
+	// 내 정보
 	public MemberVO myInfo(MemberVO member);
 	
+	// 비밀번호 확인
 	public int PwCheck(MemberVO member);
 	
+	// 변경할 비밀번호 
 	public void newPw(MemberVO member);
 }
