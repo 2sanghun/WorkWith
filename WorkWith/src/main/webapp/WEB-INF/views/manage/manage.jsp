@@ -9,8 +9,8 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"
-	src="../../../resources/js/Manage.js"></script>
-<link rel="stylesheet" href="../../../resources/css/Manage.css"
+	src="../../../resources/js/manage.js"></script>
+<link rel="stylesheet" href="../../../resources/css/manage.css"
 	type="text/css">
 </head>
 <body>

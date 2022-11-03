@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ManageController {
 	
 	@RequestMapping(value = "/manage/manage", method = RequestMethod.GET)
-	public void memberManage() {
+	public void manage() {
 	}
 }

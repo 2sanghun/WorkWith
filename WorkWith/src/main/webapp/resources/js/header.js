@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function showManage(){
-	var managePopup= window.open("../manage/memberManage","인사관리", "width=1300,height=800, left=200, top=100");
+	var managePopup= window.open("../manage/manage","인사관리", "width=1300,height=800, left=200, top=100");
 }
 
 function showPayment(){
