@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript"
-	src="../../../resources/js/manage.js"></script>
+<script type="text/javascript" src="../../../resources/js/manage.js"></script>
 <link rel="stylesheet" href="../../../resources/css/manage.css"
 	type="text/css">
 </head>
@@ -17,7 +16,7 @@
 	<div id=container_memberManage>
 
 		<span id="memberManage_button">인사관리</span> <span
-			id="signupManage_button">회원가입 허가</span><span id="quitManage_button">퇴사자</span>
+			id="signupManage_button">회원가입 허가</span> <span id="quitManage_button">퇴사자</span>
 
 		<div id="memberManage" style="display: flex">
 			<div style="flex: 2" id="memberData_simple">
@@ -45,20 +44,8 @@
 					</select> <input type="text" name="name" id="member_name" placeholder="이름">
 					<input type="button" id="member_search" value="검색">
 				</div>
-				<div id="simpleData">
+				<div id="member_simpleData">
 					<table>
-						<tr>
-							<td>부서</td>
-							<td>이름</td>
-							<td>직책</td>
-						</tr>
-						<!-- 반복문 실행 -->
-						<tr>
-							<td>반</td>
-							<td>복</td>
-							<td>문</td>
-						</tr>
-						<!-- 반복문 끝 -->
 					</table>
 				</div>
 			</div>
@@ -93,6 +80,10 @@
 					</select> <input type="text" name="name" id="signup_name" placeholder="이름">
 					<input type="button" id="signup_search" value="검색">
 				</div>
+				<div id="signup_simpleData">
+					<table>
+					</table>
+				</div>
 			</div>
 
 			<div style="flex: 3" id="signupData_detail"></div>
@@ -124,6 +115,10 @@
 						<option value="사장">사장</option>
 					</select> <input type="text" name="name" id="quit_name" placeholder="이름">
 					<input type="button" id="quit_search" value="검색">
+				</div>
+				<div id="quit_simpleData">
+					<table>
+					</table>
 				</div>
 			</div>
 

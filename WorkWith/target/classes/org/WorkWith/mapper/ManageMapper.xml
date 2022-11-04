@@ -5,5 +5,16 @@
 
 <!-- namespace로 TestMapper와 연결 -->
 <mapper namespace="org.WorkWith.mapper.ManageMapper">
-	
+	<select id="memberManage" resultType="org.WorkWith.model.MemberVO">
+		select * from member where quit = #{quit}
+			<if test=' department != "total" '>
+				and department = #{department}
+			</if>
+			<if test=' position != "total" '>
+				and position = #{position}
+			</if>
+			<if test=' name != "" '>
+				and name like concat('%',#{name},'%')
+			</if>;
+	</select>
 </mapper>

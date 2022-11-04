@@ -1,13 +1,4 @@
 $(document).ready(function(){
-	var orderBy = $("#orderBy").val();
-	// alert(orderBy);
- 
-	if(orderBy=="최신순"){
-		$("#byReg").text("작성일▼");
-	}else if(orderBy=="조회순"){
-		$("#byCnt").text("조회▼");
-	}
-	
 	// 검색버튼을 클릭하면
 	$("#searchbtn").on("click",function(){
 		if($("#query").val()==""){
@@ -30,8 +21,4 @@ $(document).ready(function(){
 		}
 	})
 
-	$("div.sortby > span").click(function() {
-		$(this).next("ul").toggle();
-		return false;
-	});
 })
