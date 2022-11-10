@@ -23,19 +23,21 @@ public class ManageController {
 	public void manage() {
 	}
 	
+	// 사원 목록
 	@RequestMapping(value = "/memberManage", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<MemberVO>> memberManage(MemberVO member) {
 		return new ResponseEntity<>(ms.memberManage(member), HttpStatus.OK);
 	}
 	
+	// 사원 정보 변경
 	@RequestMapping(value = "/member_update", method = RequestMethod.POST)
 	public ResponseEntity<String> member_update(MemberVO member) {
 		int result = ms.mamber_update(member); 
-		System.out.println(result);
 		return result == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	// 사원 퇴사
 	@RequestMapping(value = "/quitMember", method = RequestMethod.POST)
 	public String quitMember(MemberVO member){
 		LocalDate date = LocalDate.now();

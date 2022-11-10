@@ -145,7 +145,6 @@
 						type="submit" value="퇴사">
 				</form>
 			</div>
-
 		</div>
 
 		<div id="signupManage" style="display: none">

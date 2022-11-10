@@ -168,6 +168,7 @@ function detail(thisId,is_quit){
 	});
 }
 
+// 사원 정보 변경 함수
 function member_update(){
 	var id = $("#detail_id").val();
 	var name = $("#detail_name").val();
@@ -210,6 +211,7 @@ function member_update(){
 	})
 }
 
+// 사원 퇴사 구현
 function quitMember(){
 	if($("#detail_id").val()==''){
 		alert("퇴사시킬 사원을 선택해 주세요.")
