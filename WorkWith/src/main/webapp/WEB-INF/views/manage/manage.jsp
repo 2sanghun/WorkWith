@@ -51,91 +51,99 @@
 			</div>
 
 			<div style="flex: 3" id="memberData_detail">
-				<table>
-					<tr>
-						<td>사원 번호</td>
-						<td><input type="text" name="emplno" id="detail_emplno"
-							readonly></td>
-					</tr>
-					<tr>
-						<td>이름</td>
-						<td><input type="text" name="name" id="detail_name"></td>
-					</tr>
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="id" id="detail_id" readonly></td>
-					</tr>
-					<tr>
-						<td>부서</td>
-						<td><select name="department" id="detail_department">
-								<option value="총무팀">총무팀</option>
-								<option value="인사팀">인사팀</option>
-								<option value="기획팀">기획팀</option>
-								<option value="영업팀">영업팀</option>
-								<option value="회계팀">회계팀</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>직책</td>
-						<td><select name="position" id="detail_position">
-								<option value="사원">사원</option>
-								<option value="주임">주임</option>
-								<option value="대리">대리</option>
-								<option value="과장">과장</option>
-								<option value="차장">차장</option>
-								<option value="부장">부장</option>
-								<option value="이사">이사</option>
-								<option value="상무">상무</option>
-								<option value="전무">전무</option>
-								<option value="부사장">부사장</option>
-								<option value="사장">사장</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>입사일</td>
-						<td><input type="date" name="startdate" id="detail_startdate"
-							max="9999-12-31"></td>
-					</tr>
-					<tr>
-						<td>E-mail</td>
-						<td><input type="text" name="email" id="detail_email1"
-							maxlength='20'> @ <select name="email" id="detail_email2">
-								<option value="@naver.com">naver.com</option>
-								<option value="@daum.net">daum.net</option>
-								<option value="@google.com">gmail.com</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>전화번호</td>
-						<td><select name="phone" id="detail_phone1">
-								<option value="010">010</option>
-								<option value="011">011</option>
-								<option value="016">016</option>
-								<option value="017">017</option>
-								<option value="019">019</option>
-						</select>- <input type="text" name="phone" id="detail_phone2" maxlength='4'
-							class="shortbox"
-							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');">
-							- <input type="text" name="phone" id="detail_phone3"
-							maxlength='4' class="shortbox"
-							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
-					</tr>
-					<tr>
-						<td>생년월일</td>
-						<td><input type="date" name="birth" id="detail_birth"
-							max="9999-12-31"></td>
-					</tr>
-					<tr>
-						<td>주소</td>
-						<td><input type="text" name="addr" id="detail_addr1"
-							placeholder="우편번호"> <input type="button" id="addrButton"
-							onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" name="addr" id="detail_addr2" placeholder="주소"><br>
-							<input type="text" name="addr" id="detail_addrDetail"
-							placeholder="상세주소"> <input type="text" name="addr"
-							id="detail_addrExtra" placeholder="참고항목"></td>
-					</tr>
-				</table>
+				<form action="/quitMember" method="post"
+					onsubmit="return quitMember()"
+					onkeydown="return captureReturnKey(event)">
+					<table>
+						<tr>
+							<td>사원 번호</td>
+							<td><input type="text" name="emplno" id="detail_emplno"
+								readonly></td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td><input type="text" name="name" id="detail_name"></td>
+						</tr>
+						<tr>
+							<td>아이디</td>
+							<td><input type="text" name="id" id="detail_id" readonly></td>
+						</tr>
+						<tr>
+							<td>부서</td>
+							<td><select name="department" id="detail_department">
+									<option value="총무팀">총무팀</option>
+									<option value="인사팀">인사팀</option>
+									<option value="기획팀">기획팀</option>
+									<option value="영업팀">영업팀</option>
+									<option value="회계팀">회계팀</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>직책</td>
+							<td><select name="position" id="detail_position">
+									<option value="사원">사원</option>
+									<option value="주임">주임</option>
+									<option value="대리">대리</option>
+									<option value="과장">과장</option>
+									<option value="차장">차장</option>
+									<option value="부장">부장</option>
+									<option value="이사">이사</option>
+									<option value="상무">상무</option>
+									<option value="전무">전무</option>
+									<option value="부사장">부사장</option>
+									<option value="사장">사장</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>입사일</td>
+							<td><input type="date" name="startdate"
+								id="detail_startdate" max="9999-12-31" readonly></td>
+						</tr>
+						<tr>
+							<td>E-mail</td>
+							<td><input type="text" name="email" id="detail_email1"
+								maxlength='20'> @ <select name="email"
+								id="detail_email2">
+									<option value="@naver.com">naver.com</option>
+									<option value="@daum.net">daum.net</option>
+									<option value="@google.com">gmail.com</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>전화번호</td>
+							<td><select name="phone" id="detail_phone1">
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="017">017</option>
+									<option value="019">019</option>
+							</select>- <input type="text" name="phone" id="detail_phone2"
+								maxlength='4' class="shortbox"
+								onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');">
+								- <input type="text" name="phone" id="detail_phone3"
+								maxlength='4' class="shortbox"
+								onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
+						</tr>
+						<tr>
+							<td>생년월일</td>
+							<td><input type="date" name="birth" id="detail_birth"
+								max="9999-12-31" readonly></td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td><input type="text" name="addr" id="detail_addr1"
+								placeholder="우편번호"> <input type="button" id="addrButton"
+								onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+								<input type="text" name="addr" id="detail_addr2"
+								placeholder="주소"><br> <input type="text"
+								name="addr" id="detail_addrDetail" placeholder="상세주소"> <input
+								type="text" name="addr" id="detail_addrExtra" placeholder="참고항목"></td>
+						</tr>
+					</table>
+
+					<input type="button" value="수정" onclick="member_update()"><input
+						type="submit" value="퇴사">
+				</form>
 			</div>
 
 		</div>
@@ -217,7 +225,8 @@
 					</tr>
 					<tr>
 						<td>이름</td>
-						<td><input type="text" name="name" id="quitDetail_name"></td>
+						<td><input type="text" name="name" id="quitDetail_name"
+							readonly></td>
 					</tr>
 					<tr>
 						<td>아이디</td>
@@ -225,73 +234,42 @@
 					</tr>
 					<tr>
 						<td>부서</td>
-						<td><select name="department" id="quitDetail_department">
-								<option value="총무팀">총무팀</option>
-								<option value="인사팀">인사팀</option>
-								<option value="기획팀">기획팀</option>
-								<option value="영업팀">영업팀</option>
-								<option value="회계팀">회계팀</option>
-						</select></td>
+						<td><input type="text" id="quitDetail_department" readonly></td>
 					</tr>
 					<tr>
 						<td>직책</td>
-						<td><select name="position" id="quitDetail_position">
-								<option value="사원">사원</option>
-								<option value="주임">주임</option>
-								<option value="대리">대리</option>
-								<option value="과장">과장</option>
-								<option value="차장">차장</option>
-								<option value="부장">부장</option>
-								<option value="이사">이사</option>
-								<option value="상무">상무</option>
-								<option value="전무">전무</option>
-								<option value="부사장">부사장</option>
-								<option value="사장">사장</option>
-						</select></td>
+						<td><input type="text" id="quitDetail_position" readonly></td>
 					</tr>
 					<tr>
 						<td>입사일</td>
-						<td><input type="date" name="startdate" id="quitDetail_startdate"
-							max="9999-12-31"></td>
+						<td><input type="date" id="quitDetail_startdate"
+							max="9999-12-31" readonly></td>
 					</tr>
 					<tr>
 						<td>E-mail</td>
-						<td><input type="text" name="email" id="quitDetail_email1"
-							maxlength='20'> @ <select name="email" id="quitDetail_email2">
-								<option value="@naver.com">naver.com</option>
-								<option value="@daum.net">daum.net</option>
-								<option value="@google.com">gmail.com</option>
-						</select></td>
+						<td><input type="text" id="quitDetail_email" maxlength='50'
+							readonly></td>
 					</tr>
 					<tr>
 						<td>전화번호</td>
-						<td><select name="phone" id="quitDetail_phone1">
-								<option value="010">010</option>
-								<option value="011">011</option>
-								<option value="016">016</option>
-								<option value="017">017</option>
-								<option value="019">019</option>
-						</select>- <input type="text" name="phone" id="quitDetail_phone2" maxlength='4'
-							class="shortbox"
-							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');">
-							- <input type="text" name="phone" id="quitDetail_phone3"
-							maxlength='4' class="shortbox"
-							onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
+						<td><input type="text" id="quitDetail_phone" maxlength='15'
+							readonly></td>
 					</tr>
 					<tr>
 						<td>생년월일</td>
-						<td><input type="date" name="birth" id="quitDetail_birth"
-							max="9999-12-31"></td>
+						<td><input type="date" id="quitDetail_birth" max="9999-12-31"
+							readonly></td>
 					</tr>
 					<tr>
 						<td>주소</td>
-						<td><input type="text" name="addr" id="quitDetail_addr1"
-							placeholder="우편번호"> <input type="button" id="addrButton"
-							onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" name="addr" id="quitDetail_addr2" placeholder="주소"><br>
-							<input type="text" name="addr" id="quitDetail_addrDetail"
-							placeholder="상세주소"> <input type="text" name="addr"
-							id="quitDetail_addrExtra" placeholder="참고항목"></td>
+						<td><input type="text" id="quitDetail_addr1" placeholder="주소"
+							readonly><br> <input type="text"
+							id="quitDetail_addrDetail" placeholder="상세주소" readonly></td>
+					</tr>
+					<tr>
+						<td>퇴사일</td>
+						<td><input type="date" id="quitDetail_enddate"
+							max="9999-12-31" readonly></td>
 					</tr>
 				</table>
 			</div>
@@ -340,17 +318,18 @@
 									extraAddr = ' (' + extraAddr + ')';
 								}
 								// 조합된 참고항목을 해당 필드에 넣는다.
-								document.getElementById("addrExtra").value = extraAddr;
+								document.getElementById("detail_addrExtra").value = extraAddr;
 
 							} else {
-								document.getElementById("addrExtra").value = '';
+								document.getElementById("detail_addrExtra").value = '';
 							}
 
 							// 우편번호와 주소 정보를 해당 필드에 넣는다.
-							document.getElementById('addr1').value = data.zonecode;
-							document.getElementById("addr2").value = addr;
+							document.getElementById('detail_addr1').value = data.zonecode;
+							document.getElementById("detail_addr2").value = addr;
 							// 커서를 상세주소 필드로 이동한다.
-							document.getElementById("addrDetail").focus();
+							document.getElementById("detail_addrDetail")
+									.focus();
 						}
 					}).open();
 		}

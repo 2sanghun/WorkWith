@@ -20,4 +20,11 @@
 				and id = #{id}
 			</if>
 	;</select>
+	<update id="member_update">
+		update member set name=#{name},position=#{position},department=#{department},phone=#{phone},
+		addr=#{addr},email=#{email} where id=#{id}
+	</update>
+	<update id="quitMember">
+		update member set quit = 1,enddate=#{enddate} where id=#{id};
+	</update>
 </mapper>

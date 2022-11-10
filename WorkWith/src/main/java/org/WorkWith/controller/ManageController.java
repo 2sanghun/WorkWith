@@ -1,5 +1,7 @@
 package org.WorkWith.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.WorkWith.model.MemberVO;
@@ -24,5 +26,22 @@ public class ManageController {
 	@RequestMapping(value = "/memberManage", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<MemberVO>> memberManage(MemberVO member) {
 		return new ResponseEntity<>(ms.memberManage(member), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/member_update", method = RequestMethod.POST)
+	public ResponseEntity<String> member_update(MemberVO member) {
+		int result = ms.mamber_update(member); 
+		System.out.println(result);
+		return result == 1 ? new ResponseEntity<>("success", HttpStatus.OK)
+				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@RequestMapping(value = "/quitMember", method = RequestMethod.POST)
+	public String quitMember(MemberVO member){
+		LocalDate date = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		member.setEnddate(date.format(formatter));
+		ms.quitMember(member);
+		return "redirect:/manage/manage";
 	}
 }

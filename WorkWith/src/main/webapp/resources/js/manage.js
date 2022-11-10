@@ -92,13 +92,17 @@ function memberManage(is_quit) {
 		name : name,
 		quit : quit
 	}, function(memberList) {
-		var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
-		$(memberList).each(function(i,memberList){
-			member += "<tr onclick='detail(\""+memberList.id+"\","+memberList.quit+")'>" +
-					"<td><input type='text' name='department' value='"+memberList.department+"' readonly></td>" +
-					"<td><input type='text' name='name' value='"+memberList.name+"' readonly></td>" +
-					"<td><input type='text' name='position' value='"+memberList.position+"' readonly></td>"
-		})
+		if(memberList.length==0){
+			var member = "<tr><td></td><td>사원이 없습니다.</td><td></td></tr>";
+		}else{
+			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
+			$(memberList).each(function(i,memberList){
+				member += "<tr onclick='detail(\""+memberList.id+"\","+memberList.quit+")'>" +
+						"<td><input type='text' name='department' value='"+memberList.department+"' readonly></td>" +
+						"<td><input type='text' name='name' value='"+memberList.name+"' readonly></td>" +
+						"<td><input type='text' name='position' value='"+memberList.position+"' readonly></td>"
+			})
+		}
 		if(is_quit==0){
 			$("#member_simpleData table").html(member);
 		}else if(is_quit==1){
@@ -123,12 +127,12 @@ function detail(thisId,is_quit){
 		name : name
 		}, function(memberDetail){
 			console.log(memberDetail[0])
-			var phone = memberDetail[0].phone.split("-")
-			var email = memberDetail[0].email.split("@")
 			var addr = memberDetail[0].addr.split("/")
 			
 			// 퇴사하지 않은 사원
 			if(is_quit==0){
+				var phone = memberDetail[0].phone.split("-")
+				var email = memberDetail[0].email.split("@")
 				$("#detail_name").val(memberDetail[0].name);
 				$("#detail_id").val(memberDetail[0].id);
 				$("#detail_department").val(memberDetail[0].department);
@@ -154,16 +158,70 @@ function detail(thisId,is_quit){
 				$("#quitDetail_position").val(memberDetail[0].position);
 				$("#quitDetail_startdate").val(memberDetail[0].startdate);
 				$("#quitDetail_emplno").val(memberDetail[0].emplno);
-				$("#quitDetail_email1").val(email[0]);
-				$("#quitDetail_email2").val("@"+email[1]);
-				$("#quitDetail_phone1").val(phone[0]);
-				$("#quitDetail_phone2").val(phone[1]);
-				$("#quitDetail_phone3").val(phone[2]);
+				$("#quitDetail_email").val(memberDetail[0].email);
+				$("#quitDetail_phone").val(memberDetail[0].phone);
 				$("#quitDetail_birth").val(memberDetail[0].birth);
-				$("#quitDetail_addr1").val(addr[0]);
-				$("#quitDetail_addr2").val(addr[1]);
-				$("#quitDetail_addrDetail").val(addr[2]);
-				$("#quitDetail_addrExtra").val(addr[3]);
+				$("#quitDetail_addr1").val(addr[0]+"/"+addr[1]);
+				$("#quitDetail_addrDetail").val(addr[2]+addr[3]);
+				$("#quitDetail_enddate").val(memberDetail[0].enddate);
 			}
 	});
 }
+
+function member_update(){
+	var id = $("#detail_id").val();
+	var name = $("#detail_name").val();
+	var department = $("#detail_department").val()
+	var position = $("#detail_position").val()
+	var email1 = $("#detail_email1").val()
+	var email2 = $("#detail_email2").val()
+	var email = email1 + email2;
+	var phone1 = $("#detail_phone1").val()
+	var phone2 = $("#detail_phone2").val()
+	var phone3 = $("#detail_phone3").val()
+	var phone = phone1 + "-" + phone2 + "-" + phone3;
+	var addr1 = $("#detail_addr1").val()
+	var addr2 = $("#detail_addr2").val()
+	var addrDetail = $("#detail_addrDetail").val()
+	var addrExtra = $("#detail_addrExtra").val()
+	var addr = addr1 + "/" + addr2 + "/" + addrDetail + "/" + addrExtra;
+	
+	$.ajax({
+		type : 'post',
+		url : "/member_update",
+		data : {
+			id : id,
+			name : name,
+			department : department,
+			position : position,
+			email : email,
+			phone : phone,
+			addr : addr
+		},
+		success : function(result) {
+			if(result=="success"){
+				memberManage(0);
+				detail(id,0)
+				alert("수정 완료");
+			}else{
+				alert("수정 실패")
+			}
+		}
+	})
+}
+
+function quitMember(){
+	if($("#detail_id").val()==''){
+		alert("퇴사시킬 사원을 선택해 주세요.")
+		return false;
+	}else{
+		return confirm("퇴사시키겠습니까?");
+	}
+}
+
+// submit이 퇴사에 되어있어 엔터누를경우 퇴사가 실행됨
+// 엔터의 실행을 막는 함수
+function captureReturnKey(e) { 
+    if(e.keyCode == 13) 
+        return false; 
+} 

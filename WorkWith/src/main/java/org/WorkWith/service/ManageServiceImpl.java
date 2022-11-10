@@ -17,4 +17,13 @@ public class ManageServiceImpl implements ManageService{
 		return mm.memberManage(member);
 	}
 
+	public int mamber_update(MemberVO member) {
+		return mm.member_update(member);
+	}
+
+	
+	public void quitMember(MemberVO member) {
+		mm.quitMember(member);
+	}
+
 }
