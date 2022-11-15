@@ -56,11 +56,11 @@ $(document).ready(function() {
 	
 	// 회원가입 허가 대기자의 검색관련 함수
 	$("#signup_department").on("change", function() {
-		memberManage(0);
+		signupManage();
 	});
 	
 	$("#signup_position").on("change", function() {
-		memberManage(0);
+		signupManage();
 	});
 	
 	$("#signup_search").on("click",function(){

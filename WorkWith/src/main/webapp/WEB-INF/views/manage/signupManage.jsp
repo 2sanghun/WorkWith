@@ -87,7 +87,7 @@
 				<tr>
 					<td>입사일</td>
 					<td><input type="date" name="startdate"
-						id="signupDetail_startdate" max="9999-12-31" readonly></td>
+						id="signupDetail_startdate" max="9999-12-31"></td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
