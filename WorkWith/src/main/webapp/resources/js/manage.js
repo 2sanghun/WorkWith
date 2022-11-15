@@ -420,7 +420,6 @@ function signupPermit(){
 	var name = $("#signupDetail_name").val();
 	var department = $("#signupDetail_department").val()
 	var position = $("#signupDetail_position").val()
-	alert(position);
 	var startdate = $("#signupDetail_startdate").val()
 	var email1 = $("#signupDetail_email1").val()
 	var email2 = $("#signupDetail_email2").val()
