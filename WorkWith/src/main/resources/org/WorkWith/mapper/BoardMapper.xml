@@ -67,7 +67,7 @@
 				</if>
 			</when>
 			<otherwise>
-				where bno > 0
+				<where>
 				<choose>
 					<when test="period == 'day'.toString()">
 						and (regdate between date_ADD(now(), interval -1
@@ -105,6 +105,7 @@
 						</when>
 					</choose>
 				</if>
+				</where>
 			</otherwise>
 		</choose>
 		order by bno desc) as boardlist
@@ -168,7 +169,7 @@
 				</if>
 			</when>
 			<otherwise>
-				where bno>0
+				<where>
 				<if test="id!=null">
 					and id=#{id}
 				</if>
@@ -209,6 +210,7 @@
 						</when>
 					</choose>
 				</if>
+				</where>
 			</otherwise>
 		</choose>
 	</select>
