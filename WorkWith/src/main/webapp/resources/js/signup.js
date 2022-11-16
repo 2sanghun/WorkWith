@@ -6,75 +6,7 @@ window.addEventListener('load', function() {
 			alert("아이디 중복확인 해주세요.");
 		}
 	});
-	$("#department").change(function() {
-		var emplnoDe = $("#department").val();
-		if (emplnoDe == "총무팀") {
-			emplnoDe = "GAT";
-		} else if (emplnoDe == "인사팀") {
-			emplnoDe = "HRT";
-		} else if (emplnoDe == "기획팀") {
-			emplnoDe = "PLT";
-		} else if (emplnoDe == "영업팀") {
-			emplnoDe = "SLT";
-		} else if (emplnoDe == "회계팀") {
-			emplnoDe = "ACT";
-		}
-		var emplnoDt = $("#startdate").val();
-		emplnoDt = emplnoDt.substr(2, 2) + emplnoDt.substr(5, 2)
-		var emplno = emplnoDe + emplnoDt;
-		$.ajax({
-			type : 'get',
-			url : "/main/emplno",
-			data : {"emplno" : emplno},
-			dataType : "json",
-			success : function(result){
-				result = String(result+1);
-				if(result.length==1){
-					$("#emplno").val(emplno+"_00"+result);
-				}else if(result.length==2){
-					$("#emplno").val(emplno+"_0"+result);
-				}else{
-					$("#emplno").val(emplno+"_"+result);
-				}
-				
-			}
-		})
-	});
-
-	$("#startdate").change(function() {
-		var emplnoDe = $("#department").val();
-		if (emplnoDe == "총무팀") {
-			emplnoDe = "GAT";
-		} else if (emplnoDe == "인사팀") {
-			emplnoDe = "HRT";
-		} else if (emplnoDe == "기획팀") {
-			emplnoDe = "PLT";
-		} else if (emplnoDe == "영업팀") {
-			emplnoDe = "SLT";
-		} else if (emplnoDe == "회계팀") {
-			emplnoDe = "ACT";
-		}
-		var emplnoDt = $("#startdate").val();
-		emplnoDt = emplnoDt.substr(2, 2) + emplnoDt.substr(5, 2)
-		var emplno = emplnoDe + emplnoDt;
-		$.ajax({
-			type : 'get',
-			url : "/main/emplno",
-			data : {"emplno" : emplno},
-			dataType : "json",
-			success : function(result){
-				result = String(result+1);
-				if(result.length==1){
-					$("#emplno").val(emplno+"_00"+result);
-				}else if(result.length==2){
-					$("#emplno").val(emplno+"_0"+result);
-				}else{
-					$("#emplno").val(emplno+"_"+result);
-				}
-				
-			}
-		})
-	});
+	
 });
 
 function idCheck() {

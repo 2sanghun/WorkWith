@@ -60,11 +60,6 @@
 						<td><input type="date" name="startdate" id="startdate" class="box" max="9999-12-31"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td>사원번호</td>
-						<td><input type="text" name="emplno" id="emplno" readonly class="box"></td>
-					</tr>
-					<tr>
 						<td>*</td>
 						<td>아이디</td>
 						<td><input type="text" id="idchk" name="id" maxlength='20' class="box"></td>

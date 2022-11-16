@@ -6,8 +6,8 @@
 <!-- namespace로 TestMapper와 연결 -->
 <mapper namespace="org.WorkWith.mapper.MemberMapper">
 	<insert id="signup">
-		insert into member(id,department,position, emplno, password, startdate, addr, phone, email, name, birth)
-		values(#{id},#{department}, #{position}, #{emplno}, #{password},#{startdate}, #{addr}, #{phone}, #{email}, #{name},#{birth})
+		insert into signup(id,department,position, password, startdate, addr, phone, email, name, birth)
+		values(#{id},#{department}, #{position}, #{password},#{startdate}, #{addr}, #{phone}, #{email}, #{name},#{birth})
 	</insert>
 	<select id="idcheck" resultType="int">
 		select count(*) from member where id=#{id};
