@@ -12,7 +12,7 @@
 	<div id="background">
 		<div id="container">
 			<div class="loginsession">
-				<h1 id="logincss">로그인</h1>
+				<h1 id="logincss">sign in</h1>
 				<form action="/main/login" method="post">
 					<input type="text" name="id" placeholder="아이디를 입력해주세요"
 						class="textBox"><br> <input type="password"
