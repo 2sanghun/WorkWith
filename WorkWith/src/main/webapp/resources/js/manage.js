@@ -292,7 +292,7 @@ function member_update(){
 		success : function(result) {
 			if(result=="success"){
 				memberManage(0);
-				detail(id,0)
+				memberDetail(id,0)
 				alert("수정 완료");
 			}else{
 				alert("수정 실패")
