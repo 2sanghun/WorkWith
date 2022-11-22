@@ -41,7 +41,7 @@ public class MainController {
 			session.setAttribute("name", name);
 
 		} else {
-			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요'); </script>");
+			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요');</script>");
 			out.flush();
 			return "/main/login";
 		}
@@ -100,29 +100,29 @@ public class MainController {
 			} else {
 				serid = id.substring(0, a) + b + "*";
 			}
-			out.println("<script>alert('아이디:" + serid + "'); location.href='/main/login'</script>");
+			out.println("<script>alert('아이디:" + serid + "');location.href='/main/login'</script>");
 			out.flush();
 			out.close();
 		} else {
-			out.println("<script>alert('아이디를 찾을 수 없습니다.'); location.href='/main/idpwSearch'</script>");
+			out.println("<script>alert('아이디를 찾을 수 없습니다.');location.href='/main/idpwSearch'</script>");
 			out.flush();
 			out.close();
 		}
 	}
 
-	// 현재 다음에만 메일이 전송됨
+	// �쁽�옱 �떎�쓬�뿉留� 硫붿씪�씠 �쟾�넚�맖
 	@RequestMapping(value = "/main/pwsearch", method = RequestMethod.POST)
 	public void pwsearch(MemberVO member, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if (ms.findPwCheck(member) == 0) {
-			out.println("<script>alert('아이디와 이메일을 확인해 주세요'); location.href='/main/idpwSearch'</script>");
+			out.println("<script>alert('아이디와 이메일을 확인해 주세요');location.href='/main/idpwSearch'</script>");
 			out.flush();
 			out.close();
 		} else {
 			ms.findPw(member);
-			out.println("<script>alert('이메일에서 임시 비밀번호를 확인해주세요.'); location.href='/main/login'</script>");
+			out.println("<script>alert('이메일에서 임시 비밀번호를 확인해주세요.');location.href='/main/login'</script>");
 			out.flush();
 			out.close();
 		}
