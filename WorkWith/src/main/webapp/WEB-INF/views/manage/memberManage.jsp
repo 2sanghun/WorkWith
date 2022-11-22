@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div style="flex: 2" id="memberData_simple">
+	
 		<div id="memberManage_search">
 			<select name="department" id="member_department">
 				<option value="total">부서</option>
@@ -30,7 +31,6 @@
 				<option value="부사장">부사장</option>
 				<option value="사장">사장</option>
 			</select> <input type="text" name="name" id="member_name" placeholder="이름">
-			<input type="button" id="member_search" value="검색">
 		</div>
 		<div id="member_simpleData">
 			<table>

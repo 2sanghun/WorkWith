@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div style="flex: 2" id="quitData_simple">
+	
 		<div id="quitManage_search">
 			<select name="department" id="quit_department">
 				<option value="total">부서</option>
@@ -30,7 +31,6 @@
 				<option value="부사장">부사장</option>
 				<option value="사장">사장</option>
 			</select> <input type="text" name="name" id="quit_name" placeholder="이름">
-			<input type="button" id="quit_search" value="검색">
 		</div>
 		<div id="quit_simpleData">
 			<table>

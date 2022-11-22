@@ -31,7 +31,6 @@
 				<option value="부사장">부사장</option>
 				<option value="사장">사장</option>
 			</select> <input type="text" name="name" id="signup_name" placeholder="이름">
-			<input type="button" id="signup_search" value="검색">
 		</div>
 		<div id="signup_simpleData">
 			<table>

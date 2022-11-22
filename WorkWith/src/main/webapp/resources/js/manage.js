@@ -45,13 +45,9 @@ $(document).ready(function() {
 		memberManage(0);
 	});
 	
-	$("#member_search").on("click",function(){
+	$("#member_name").on("keyup",function(){
 		var name = $("#member_name").val();
-		if(name==""){
-			alert("검색어를 입력하세요.");
-		}else{
-			memberManage(0);
-		}
+		memberManage(0);
 	})
 	
 	// 회원가입 허가 대기자의 검색관련 함수
@@ -63,13 +59,9 @@ $(document).ready(function() {
 		signupManage();
 	});
 	
-	$("#signup_search").on("click",function(){
+	$("#signup_name").on("keyup",function(){
 		var name = $("#member_name").val();
-		if(name==""){
-			alert("검색어를 입력하세요.");
-		}else{
-			signupManage();
-		}
+		signupManage();
 	})
 	
 	// 퇴직한 회원의 검색관련 함수
@@ -81,13 +73,9 @@ $(document).ready(function() {
 		memberManage(1);
 	});
 	
-	$("#quit_search").on("click",function(){
+	$("#quit_name").on("keyup",function(){
 		var name = $("#quit_name").val();
-		if(name==""){
-			alert("검색어를 입력하세요.");
-		}else{
-			memberManage(1);
-		}
+		memberManage(1);
 	})
 	
 	// 회원가입 희망자의 사원번호 자동 설정
