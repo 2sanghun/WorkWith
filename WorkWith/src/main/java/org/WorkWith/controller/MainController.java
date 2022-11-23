@@ -22,39 +22,35 @@ public class MainController {
 	MemberService ms;
 
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-	public void login() {
-
+	public String login(HttpSession session) {
+		if (session.getAttribute("id") != null) {
+			return "redirect:/board/board";
+		}else { 
+			return "/main/login";
+		}
 	}
 
 	@RequestMapping(value = "/main/login", method = RequestMethod.POST)
-	public void login(MemberVO member, HttpSession session, HttpServletResponse response) throws IOException {
+	public String login(MemberVO member, HttpSession session, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		if (session.getAttribute("id") != null) {
-			out.println("<script>alert('이미 로그인한 아이디가 있습니다.');location.href='/board/board';</script>");
-			out.flush();
-			out.close();
+		MemberVO a = ms.login(member);
+		if (a != null) {
+			String id = a.getId();
+			String position = a.getPosition();
+			String department = a.getDepartment();
+			String name = a.getName();
+			session.setAttribute("id", id);
+			session.setAttribute("position", position);
+			session.setAttribute("department", department);
+			session.setAttribute("name", name);
 		} else {
-			MemberVO a = ms.login(member);
-			if (a != null) {
-				String id = a.getId();
-				String position = a.getPosition();
-				String department = a.getDepartment();
-				String name = a.getName();
-				session.setAttribute("id", id);
-				session.setAttribute("position", position);
-				session.setAttribute("department", department);
-				session.setAttribute("name", name);
-
-			} else {
-				out.println("<script>alert('아이디, 비밀번호를 확인해 주세요');location.href='/main/login'</script>");
-				out.flush();
-				out.close();
-			}
-			out.println("<script>location.href='/board/board';</script>");
+			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요');</script>");
 			out.flush();
 			out.close();
+			return "/main/login";
 		}
+		return "redirect:/board/board";
 	}
 
 	@RequestMapping(value = "/main/logout", method = RequestMethod.GET)
