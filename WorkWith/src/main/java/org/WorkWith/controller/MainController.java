@@ -22,14 +22,21 @@ public class MainController {
 	MemberService ms;
 
 	@RequestMapping(value = "/main/login", method = RequestMethod.GET)
-	public void login() {
+	public void login(HttpSession session, HttpServletResponse response) throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("id")!=null) {
+			out.println("<script>alert('이미 로그인한 아이디가 있습니다.'); location.href='/board/board';</script>");
+			out.flush();
+			out.close();
+		}
 	}
 
 	@RequestMapping(value = "/main/login", method = RequestMethod.POST)
 	public String login(MemberVO member, HttpSession session, HttpServletResponse response) throws IOException {
-		MemberVO a = ms.login(member);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		MemberVO a = ms.login(member);
 		if (a != null) {
 			String id = a.getId();
 			String position = a.getPosition();
@@ -110,7 +117,7 @@ public class MainController {
 		}
 	}
 
-	// �쁽�옱 �떎�쓬�뿉留� 硫붿씪�씠 �쟾�넚�맖
+	// 비밀번호 찾기
 	@RequestMapping(value = "/main/pwsearch", method = RequestMethod.POST)
 	public void pwsearch(MemberVO member, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
