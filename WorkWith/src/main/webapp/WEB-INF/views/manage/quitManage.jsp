@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 2" id="quitData_simple">
+	<div style="flex: 1" id="quitData_simple">
 	
 		<div id="quitManage_search">
 			<select name="department" id="quit_department">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 
-	<div style="flex: 3" id="quitData_detail">
+	<div style="flex: 1" id="quitData_detail">
 		<table>
 			<tr>
 				<td>사원 번호</td>

@@ -14,5 +14,7 @@ body{
 
 #memberData_simple,#signupData_simple,#quitData_simple{
 	height:775px;
+	width:550px;
 	border-right: solid black 3px;
+	text-align:right;
 }

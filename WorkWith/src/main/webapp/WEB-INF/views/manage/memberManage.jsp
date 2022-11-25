@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 2" id="memberData_simple">
+	<div style="flex: 1" id="memberData_simple">
 	
 		<div id="memberManage_search">
 			<select name="department" id="member_department">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 
-	<div style="flex: 3" id="memberData_detail">
+	<div style="flex: 1" id="memberData_detail">
 		<form action="/quitMember" method="post"
 			onsubmit="return quitMember()"
 			onkeydown="return captureReturnKey(event)">
