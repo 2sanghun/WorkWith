@@ -9,5 +9,5 @@ function showManage(){
 }
 
 function showPayment(){
-	var paymentPopup= window.open("../payment/payment","전자 결재", "width=1100,height=800, left=250, top=150");
+	var paymentPopup= window.open("../payment/paymentPage","전자 결재", "width=1100,height=800, left=250, top=150");
 }
