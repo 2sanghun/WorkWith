@@ -18,7 +18,6 @@
 <body>
 	<%@ include file="../main/header.jsp"%>
 	<div id="container">
-		<form action="/board/write" id="form" method="post">
 			<div id="top">
 				<h1 id="writecss">글 쓰기</h1>
 			</div>
@@ -65,7 +64,6 @@
 				</div>
 			</div>
 			<div id="bottom"></div>
-		</form>
 		<%@ include file="../main/footer.jsp"%>
 	</div>
 </body>

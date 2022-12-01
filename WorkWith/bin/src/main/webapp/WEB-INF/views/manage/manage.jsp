@@ -19,15 +19,15 @@
 			id="signupManage_button">회원가입 허가</span> <span id="quitManage_button">퇴사자</span>
 
 		<div id="memberManage" style="display: flex">
-			<%@ include file="../manage/memberManage.jsp"%>
+			<%@ include file="memberManage.jsp"%>
 		</div>
 		
 		<div id="signupManage" style="display: none">
-			<%@ include file="../manage/signupManage.jsp"%>
+			<%@ include file="signupManage.jsp"%>
 		</div>
 		
 		<div id="quitManage" style="display: none">
-			<%@ include file="../manage/quitManage.jsp"%>
+			<%@ include file="quitManage.jsp"%>
 		</div>
 	</div>
 </body>
