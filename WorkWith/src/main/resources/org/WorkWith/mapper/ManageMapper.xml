@@ -20,7 +20,7 @@
 		<if test=' id != null '>
 			and id = #{id}
 		</if>
-		;
+		order by department,position,startdate;
 	</select>
 	<select id="signupManage"
 		resultType="org.WorkWith.model.MemberVO">

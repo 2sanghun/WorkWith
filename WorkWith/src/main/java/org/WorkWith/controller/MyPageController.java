@@ -54,13 +54,13 @@ public class MyPageController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if(ms.PwCheck(member)==0) {
-			out.println("<script>alert('ÇöÀç ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä.');location.href='/myPage/pwChange'</script>");
+			out.println("<script>alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•´ ì£¼ì„¸ìš”.');location.href='/myPage/pwChange'</script>");
 			out.flush();
 			out.close();
 		}else {
 			member.setPassword(newPw);
 			ms.newPw(member);
-			out.println("<script>alert('ºñ¹Ğ¹øÈ£°¡ º¯°æµÇ¾ú½À´Ï´Ù.');window.close();</script>");
+			out.println("<script>alert('ë¹„ë°€ë²ˆí˜¸ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.');window.close();</script>");
 			out.flush();
 			out.close();
 		}

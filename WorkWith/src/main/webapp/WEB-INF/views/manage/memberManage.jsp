@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 1" id="memberData_simple">
+	<div style="flex: 1" class="Data_simple" id="memberData_simple">
 	
-		<div id="memberManage_search">
+		<div class="manageSearch" id="memberManage_search">
 			<select name="department" id="member_department">
 				<option value="total">부서</option>
 				<option value="총무팀">총무팀</option>
@@ -32,14 +32,14 @@
 				<option value="사장">사장</option>
 			</select> <input type="text" name="name" id="member_name" placeholder="이름">
 		</div>
-		<div id="member_simpleData">
+		<div class="simpleData" id="member_simpleData">
 			<table>
 			</table>
 		</div>
 	</div>
 
-	<div style="flex: 1" id="memberData_detail">
-		<form action="/quitMember" method="post"
+	<div style="flex: 2" class="Data_detail" id="memberData_detail">
+		<form class="detailData" action="/quitMember" method="post"
 			onsubmit="return quitMember()"
 			onkeydown="return captureReturnKey(event)">
 			<table>

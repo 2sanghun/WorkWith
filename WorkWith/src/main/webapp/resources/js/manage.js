@@ -1,38 +1,40 @@
 $(document).ready(function() {
 	// 첫 화면은 인사관리 페이지
 	memberManage(0);
-	$("#memberManage_button")[0].style.background = "red";
+	$("#memberManage_button")[0].style.paddingBottom = "10px";
 	
 	// 인사 관리 버튼 클릭시
 	$("#memberManage_button").on("click", function() {
 		$("#memberManage")[0].style.display = "flex";
-		$("#memberManage_button")[0].style.background = "red";
+		$("#memberManage_button")[0].style.paddingBottom = "10px";
 		$("#signupManage")[0].style.display = "none";
-		$("#signupManage_button")[0].style.background = "white";
+		$("#signupManage_button")[0].style.paddingBottom = "0px";
 		$("#quitManage")[0].style.display = "none";
-		$("#quitManage_button")[0].style.background = "white";
+		$("#quitManage_button")[0].style.paddingBottom = "0px";
+
 		memberManage(0);
 	})
 	
 	// 회원가입 허가 버튼 클릭시
 	$("#signupManage_button").on("click", function() {
 		$("#signupManage")[0].style.display = "flex";
-		$("#signupManage_button")[0].style.background = "red";
+		$("#signupManage_button")[0].style.paddingBottom = "10px";
 		$("#memberManage")[0].style.display = "none";
-		$("#memberManage_button")[0].style.background = "white";
+		$("#memberManage_button")[0].style.paddingBottom = "0px";
 		$("#quitManage")[0].style.display = "none";
-		$("#quitManage_button")[0].style.background = "white";
+		$("#quitManage_button")[0].style.paddingBottom = "0px";
+
 		signupManage();
 	})
 	
 	// 퇴직자 버튼 클릭시 
 	$("#quitManage_button").on("click", function() {
 		$("#quitManage")[0].style.display = "flex";
-		$("#quitManage_button")[0].style.background = "red";
+		$("#quitManage_button")[0].style.paddingBottom = "10px";
 		$("#signupManage")[0].style.display = "none";
-		$("#signupManage_button")[0].style.background = "white";
+		$("#signupManage_button")[0].style.paddingBottom = "0px";
 		$("#memberManage")[0].style.display = "none";
-		$("#memberManage_button")[0].style.background = "white";
+		$("#memberManage_button")[0].style.paddingBottom = "0px";
 		memberManage(1);
 	})
 	
@@ -171,14 +173,14 @@ function memberManage(is_quit) {
 		quit : quit
 	}, function(memberList) {
 		if(memberList.length==0){
-			var member = "<tr><td></td><td>사원이 없습니다.</td><td></td></tr>";
+			var member = "<tr><td colspan='3'>사원이 없습니다.</td></tr>";
 		}else{
 			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
 			$(memberList).each(function(i,memberList){
 				member += "<tr onclick='memberDetail(\""+memberList.id+"\","+memberList.quit+")'>" +
-						"<td><input type='text' class= 'short' name='department' value='"+memberList.department+"' readonly></td>" +
-						"<td><input type='text' class= 'short' name='name' value='"+memberList.name+"' readonly></td>" +
-						"<td><input type='text' class= 'short' name='position' value='"+memberList.position+"' readonly></td>"
+						"<td><span readonly>"+memberList.department+"</span></td>" +
+						"<td><span readonly>"+memberList.name+"</span></td>" +
+						"<td><span readonly>"+memberList.position+"</span></td>"
 			})
 		}
 		if(is_quit==0){
@@ -318,7 +320,7 @@ function signupManage() {
 		name : name,
 	}, function(signupList) {
 		if(signupList.length==0){
-			var member = "<tr><td></td><td>사원이 없습니다.</td><td></td></tr>";
+			var member = "<tr><td></td><td colspan='3'>결과가 없습니다.</td><td></td></tr>";
 		}else{
 			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
 			$(signupList).each(function(i,signupList){

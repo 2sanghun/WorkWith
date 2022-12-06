@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 1" id="signupData_simple">
+	<div style="flex: 1" class="Data_simple" id="signupData_simple">
 
-		<div id="signupManage_search">
+		<div class="manageSearch" id="signupManage_search">
 			<select name="department" id="signup_department">
 				<option value="total">부서</option>
 				<option value="총무팀">총무팀</option>
@@ -32,14 +32,14 @@
 				<option value="사장">사장</option>
 			</select> <input type="text" name="name" id="signup_name" placeholder="이름">
 		</div>
-		<div id="signup_simpleData">
+		<div class="simpleData" id="signup_simpleData">
 			<table>
 			</table>
 		</div>
 	</div>
 
-	<div style="flex: 1" id="signupData_detail">
-		<form action="/signupRefuse" method="post"
+	<div style="flex: 2" class="Data_detail" id="signupData_detail">
+		<form class="detailData" action="/signupRefuse" method="post"
 			onsubmit="return signupRefuse()"
 			onkeydown="return captureReturnKey(event)">
 			<input type="hidden" id="signupDetail_password">

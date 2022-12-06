@@ -107,7 +107,7 @@ function jsSubmit() {
 	}
 	;
 
-	alert("가입이 완료 되었습니다.");
+	alert("가입 신청이 완료 되었습니다.");
 	return true;
 	;
 };

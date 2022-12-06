@@ -84,13 +84,6 @@
 							formaction="/detail/remove" class="remove">
 						</span>
 					</c:when>
-					<c:when test="${position.equals('사장') || position.equals('부사장')}">
-						<span class="modifybtn_box"> <input type="submit"
-							value="삭제"
-							onclick="if(!confirm('${detail.name}님의 게시물을 삭제 하시겠습니까?')){return false}"
-							formaction="/detail/remove" class="remove">
-						</span>
-					</c:when>
 					<c:when test="${id != detail.id}">
 						<div id="AttachList_other">
 							<span class="uploadlist">첨부 파일 목록</span>
@@ -99,6 +92,15 @@
 								<ul id="downimg"></ul>
 							</div>
 						</div>
+					</c:when>
+				</c:choose>
+				<c:choose>
+					<c:when test="${position.equals('사장') || position.equals('부사장')}">
+						<span class="modifybtn_box"> <input type="submit"
+							value="삭제"
+							onclick="if(!confirm('${detail.name}님의 게시물을 삭제 하시겠습니까?')){return false}"
+							formaction="/detail/remove" class="remove">
+						</span>
 					</c:when>
 				</c:choose>
 			</div>

@@ -13,21 +13,24 @@
 	type="text/css">
 </head>
 <body>
-	<div id=container_memberManage>
+	<div id="background_color">
+		<div id=container_memberManage>
 
-		<span id="memberManage_button">인사관리</span> <span
-			id="signupManage_button">회원가입 허가</span> <span id="quitManage_button">퇴사자</span>
+			<span class="manageButton" id="memberManage_button">인사관리</span> <span
+				class="manageButton" id="signupManage_button">회원가입 허가</span> <span
+				class="manageButton" id="quitManage_button">퇴사자</span>
 
-		<div id="memberManage" style="display: flex">
-			<%@ include file="../manage/memberManage.jsp"%>
-		</div>
-		
-		<div id="signupManage" style="display: none">
-			<%@ include file="../manage/signupManage.jsp"%>
-		</div>
-		
-		<div id="quitManage" style="display: none">
-			<%@ include file="../manage/quitManage.jsp"%>
+			<div class="manage" id="memberManage" style="display: flex">
+				<%@ include file="../manage/memberManage.jsp"%>
+			</div>
+
+			<div class="manage" id="signupManage" style="display: none">
+				<%@ include file="../manage/signupManage.jsp"%>
+			</div>
+
+			<div class="manage" id="quitManage" style="display: none">
+				<%@ include file="../manage/quitManage.jsp"%>
+			</div>
 		</div>
 	</div>
 </body>

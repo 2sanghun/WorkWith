@@ -45,7 +45,7 @@ public class MainController {
 			session.setAttribute("department", department);
 			session.setAttribute("name", name);
 		} else {
-			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요');</script>");
+			out.println("<script>alert('아이디, 비밀번호를 확인해 주세요');location.href='/main/login'</script>");
 			out.flush();
 			out.close();
 			return "/main/login";

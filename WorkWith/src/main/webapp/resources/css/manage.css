@@ -1,20 +1,103 @@
-@charset "UTF-8"; 
-body{
-	margin:0px;
-	padding:0px;
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
 }
 
-#memberManage_button,#signupManage_button,#quitManage_button{
-	margin:10px;
+#background_color {
+	height: 812px;
+	background: gray;
 }
 
-#memberManage,#signupManage,#quitManage{
-	border-top: solid black 3px;
+#container_memberManage {
+	position: relative;
+	top: 10px;
 }
 
-#memberData_simple,#signupData_simple,#quitData_simple{
-	height:775px;
-	width:550px;
+#memberManage_button {
+	background: lightskyblue;
+}
+
+#signupManage_button {
+	background: lightblue;
+}
+
+#quitManage_button {
+	background: lightcoral;
+}
+
+.manageButton {
+	border-radius: 5px 5px 0px 0px;
+	position: relative;
+	left: 30px;
+}
+
+.manage {
+	border: solid black 3px;
+	border-radius: 30px 30px 0px 0px;
+}
+
+.Data_simple {
+	height: 775px;
+	width: 550px;
 	border-right: solid black 3px;
-	text-align:right;
+	text-align: right;
+	background: white;
+	border-radius: 30px 0px 0px 0px;
+}
+
+.Data_detail {
+	background: white;
+	border-radius: 0px 30px 0px 0px;
+}
+
+.manageSearch, .simpleData, .detailDatail {
+	position: relative;
+	top: 20px;
+}
+
+.manageSearch {
+	height: 40px;
+	width: 400px;
+	margin: 0px;
+	text-align: left;
+	position: relative;
+	left: 20px;
+}
+
+.manageSearch select {
+	padding: 3px 10px 3px 10px;
+}
+
+.manageSearch input {
+	padding: 3px 5px 3px 5px;
+}
+
+.simpleData {
+	height: 714px;
+	width: 395px;
+	overflow-y: scroll;
+}
+
+.simpleData table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.simpleData tr:nth-child(1) td {
+	border-bottom: 4px gray solid;
+	border-top: 4px gray solid;
+	background: lightgray;
+}
+
+.simpleData td {
+	text-align: center;
+	border-bottom: 1px solid black;
+	padding: 10px;
+	width: 107px;
+}
+
+.simpleData td input {
+	border: 0;
 }
