@@ -4,6 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="org.WorkWith.mapper.PaymentMapper">
- 
+ 	<insert id="paymentWrite">
+ 		insert into payment(title, content,id)
+		values(#{title},#{content},#{id})
+		<!-- board테이블이 비어있어도 사용 가능 -->
+		<selectKey keyProperty="pno" order="AFTER" resultType="int">
+			select LAST_INSERT_ID();
+		</selectKey>
+ 	</insert>
  
  </mapper>

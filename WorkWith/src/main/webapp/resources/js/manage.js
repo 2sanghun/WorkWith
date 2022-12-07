@@ -325,9 +325,9 @@ function signupManage() {
 			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
 			$(signupList).each(function(i,signupList){
 				member += "<tr onclick='signupDetail(\""+signupList.id+"\")'>" +
-						"<td><input type='text' class= 'short' name='department' value='"+signupList.department+"' readonly></td>" +
-						"<td><input type='text' class= 'short' name='name' value='"+signupList.name+"' readonly></td>" +
-						"<td><input type='text' class= 'short' name='position' value='"+signupList.position+"' readonly></td>"
+						"<td><span readonly>"+signupList.department+"</span></td>" +
+						"<td><span readonly>"+signupList.name+"</span></td>" +
+						"<td><span readonly>"+signupList.position+"</span></td>"
 			})
 		}
 		$("#signup_simpleData table").html(member);
