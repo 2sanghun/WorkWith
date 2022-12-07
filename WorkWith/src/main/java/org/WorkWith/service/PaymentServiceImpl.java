@@ -17,6 +17,12 @@ public class PaymentServiceImpl implements PaymentService{
 	
 	public void paymentWrite(PaymentVO pay) {
 		pm.paymentWrite(pay);
+		if (pay.getAttach() != null) {
+			pay.getAttach().forEach(attach -> {
+				attach.setPno(pay.getPno());
+				pam.insert(attach);
+			});
+		}
 	}
 
 }

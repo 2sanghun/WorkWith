@@ -2,8 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- <mapper namespace="org.WorkWith.mapper.PaymentAttachMapper">
- 
- 
- </mapper>
+
+<mapper namespace="org.WorkWith.mapper.PaymentAttachMapper">
+	<insert id="insert">
+		<!-- 파일경로, 파일명, uuid를 attach테이블 insert -->
+		insert into paymentattach(uuid, uploadPath, fileName, pno)
+		value(#{uuid}, #{uploadPath}, #{fileName}, #{pno});
+	</insert>
+
+</mapper>
