@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 1" class="Data_simple" id="memberData_simple">
-	
+	<div class="Data_simple" id="memberData_simple">
+
 		<div class="manageSearch" id="memberManage_search">
 			<select name="department" id="member_department">
 				<option value="total">부서</option>
@@ -38,23 +38,25 @@
 		</div>
 	</div>
 
-	<div style="flex: 2" class="Data_detail" id="memberData_detail">
+	<div class="Data_detail" id="memberData_detail">
 		<form class="detailData" action="/quitMember" method="post"
 			onsubmit="return quitMember()"
 			onkeydown="return captureReturnKey(event)">
 			<table>
 				<tr>
 					<td>사원 번호</td>
-					<td><input type="text" name="emplno" id="detail_emplno"
-						readonly></td>
+					<td><input type="text" class="normal" name="emplno"
+						id="detail_emplno" readonly></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" id="detail_name"></td>
+					<td><input type="text" class="normal" name="name"
+						id="detail_name"></td>
 				</tr>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" id="detail_id" readonly></td>
+					<td><input type="text" class="normal" name="id" id="detail_id"
+						readonly></td>
 				</tr>
 				<tr>
 					<td>부서</td>
@@ -84,13 +86,14 @@
 				</tr>
 				<tr>
 					<td>입사일</td>
-					<td><input type="date" name="startdate" id="detail_startdate"
-						max="9999-12-31" readonly></td>
+					<td><input type="date" class="normal" name="startdate"
+						id="detail_startdate" max="9999-12-31" readonly></td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
-					<td><input type="text" name="email" id="detail_email1"
-						maxlength='20'> @ <select name="email" id="detail_email2">
+					<td><input type="text" class="normal" name="email"
+						id="detail_email1" maxlength='20'> @ <select name="email"
+						id="detail_email2">
 							<option value="@naver.com">naver.com</option>
 							<option value="@daum.net">daum.net</option>
 							<option value="@google.com">gmail.com</option>
@@ -98,38 +101,41 @@
 				</tr>
 				<tr>
 					<td>전화번호</td>
-					<td><select name="phone" id="detail_phone1">
+					<td><select name="phone" class="short" id="detail_phone1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="019">019</option>
-					</select>- <input type="text" name="phone" id="detail_phone2" maxlength='4'
-						class="shortbox"
+					</select>- <input type="text" class="short" name="phone" id="detail_phone2"
+						maxlength='4' class="shortbox"
 						onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"> -
-						<input type="text" name="phone" id="detail_phone3" maxlength='4'
-						class="shortbox"
+						<input type="text" class="short" name="phone" id="detail_phone3"
+						maxlength='4' class="shortbox"
 						onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input type="date" name="birth" id="detail_birth"
-						max="9999-12-31" readonly></td>
+					<td><input type="date" class="normal" name="birth"
+						id="detail_birth" max="9999-12-31" readonly></td>
 				</tr>
 				<tr>
 					<td>주소</td>
-					<td><input type="text" name="addr" id="detail_addr1"
-						placeholder="우편번호"> <input type="button" id="addrButton"
-						onclick="memberAddr()" value="우편번호 찾기"><br> <input
-						type="text" name="addr" id="detail_addr2" placeholder="주소"><br>
-						<input type="text" name="addr" id="detail_addrDetail"
-						placeholder="상세주소"> <input type="text" name="addr"
-						id="detail_addrExtra" placeholder="참고항목"></td>
+					<td><input type="text" class="short" name="addr"
+						id="detail_addr1" placeholder="우편번호"> <input type="button"
+						id="addrButton" onclick="memberAddr()" value="우편번호 찾기"><br>
+						<input type="text" name="addr" class="long" id="detail_addr2"
+						placeholder="주소"><br> <input type="text" class="long"
+						name="addr" id="detail_addrDetail" placeholder="상세주소"> <input
+						type="text" class="short" name="addr" id="detail_addrExtra"
+						placeholder="참고항목"></td>
 				</tr>
 			</table>
-
-			<input type="button" value="수정" onclick="member_update()"><input
-				type="submit" value="퇴사">
+			<div class="manage_button">
+				<input type="button" class="positive" value="수정"
+					onclick="member_update()"><input class="negative"
+					type="submit" value="퇴사">
+			</div>
 		</form>
 	</div>
 	<!-- 주소 관련 스크립트 -->

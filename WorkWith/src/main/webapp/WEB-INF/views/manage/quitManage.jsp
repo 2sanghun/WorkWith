@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 1" class="Data_simple" id="quitData_simple">
-	
+	<div class="Data_simple" id="quitData_simple">
+
 		<div class="manageSearch" id="quitManage_search">
 			<select name="department" id="quit_department">
 				<option value="total">부서</option>
@@ -38,62 +38,68 @@
 		</div>
 	</div>
 
-	<div style="flex: 2" class="Data_detail" id="quitData_detail">
-		<table class="detailData">
-			<tr>
-				<td>사원 번호</td>
-				<td><input type="text" name="emplno" id="quitDetail_emplno"
-					readonly></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" id="quitDetail_name"
-					readonly></td>
-			</tr>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id" id="quitDetail_id" readonly></td>
-			</tr>
-			<tr>
-				<td>부서</td>
-				<td><input type="text" id="quitDetail_department" readonly></td>
-			</tr>
-			<tr>
-				<td>직책</td>
-				<td><input type="text" id="quitDetail_position" readonly></td>
-			</tr>
-			<tr>
-				<td>입사일</td>
-				<td><input type="date" id="quitDetail_startdate"
-					max="9999-12-31" readonly></td>
-			</tr>
-			<tr>
-				<td>E-mail</td>
-				<td><input type="text" id="quitDetail_email" maxlength='50'
-					readonly></td>
-			</tr>
-			<tr>
-				<td>전화번호</td>
-				<td><input type="text" id="quitDetail_phone" maxlength='15'
-					readonly></td>
-			</tr>
-			<tr>
-				<td>생년월일</td>
-				<td><input type="date" id="quitDetail_birth" max="9999-12-31"
-					readonly></td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type="text" id="quitDetail_addr1" placeholder="주소"
-					readonly><br> <input type="text"
-					id="quitDetail_addrDetail" placeholder="상세주소" readonly></td>
-			</tr>
-			<tr>
-				<td>퇴사일</td>
-				<td><input type="date" id="quitDetail_enddate" max="9999-12-31"
-					readonly></td>
-			</tr>
-		</table>
+	<div class="Data_detail" id="quitData_detail">
+		<div class="detailData">
+			<table>
+				<tr>
+					<td>사원 번호</td>
+					<td><input type="text" class="normal" name="emplno"
+						id="quitDetail_emplno" readonly></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" class="normal" name="name"
+						id="quitDetail_name" readonly></td>
+				</tr>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" class="normal" name="id"
+						id="quitDetail_id" readonly></td>
+				</tr>
+				<tr>
+					<td>부서</td>
+					<td><input type="text" class="normal"
+						id="quitDetail_department" readonly></td>
+				</tr>
+				<tr>
+					<td>직책</td>
+					<td><input type="text" class="normal" id="quitDetail_position"
+						readonly></td>
+				</tr>
+				<tr>
+					<td>입사일</td>
+					<td><input type="date" class="normal"
+						id="quitDetail_startdate" max="9999-12-31" readonly></td>
+				</tr>
+				<tr>
+					<td>E-mail</td>
+					<td><input type="text" class="long" id="quitDetail_email"
+						maxlength='50' readonly></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" class="normal" id="quitDetail_phone"
+						maxlength='15' readonly></td>
+				</tr>
+				<tr>
+					<td>생년월일</td>
+					<td><input type="date" id="quitDetail_birth" max="9999-12-31"
+						readonly></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td><input type="text" class="long" id="quitDetail_addr1"
+						placeholder="주소" readonly><br> <input type="text"
+						class="long" id="quitDetail_addrDetail" placeholder="상세주소"
+						readonly></td>
+				</tr>
+				<tr>
+					<td>퇴사일</td>
+					<td><input type="date" id="quitDetail_enddate"
+						max="9999-12-31" readonly></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

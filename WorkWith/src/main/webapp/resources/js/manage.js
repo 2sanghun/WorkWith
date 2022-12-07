@@ -173,7 +173,7 @@ function memberManage(is_quit) {
 		quit : quit
 	}, function(memberList) {
 		if(memberList.length==0){
-			var member = "<tr><td colspan='3'>사원이 없습니다.</td></tr>";
+			var member = "<tr><td id='nonData'><span>결과가 없습니다.</span></td></tr>";
 		}else{
 			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
 			$(memberList).each(function(i,memberList){
@@ -320,7 +320,7 @@ function signupManage() {
 		name : name,
 	}, function(signupList) {
 		if(signupList.length==0){
-			var member = "<tr><td></td><td colspan='3'>결과가 없습니다.</td><td></td></tr>";
+			var member = "<tr><td id='nonData'><span>결과가 없습니다.</span></td></tr>";
 		}else{
 			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
 			$(signupList).each(function(i,signupList){

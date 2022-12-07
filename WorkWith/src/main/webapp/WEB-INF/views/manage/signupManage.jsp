@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="flex: 1" class="Data_simple" id="signupData_simple">
+	<div class="Data_simple" id="signupData_simple">
 
 		<div class="manageSearch" id="signupManage_search">
 			<select name="department" id="signup_department">
@@ -38,7 +38,7 @@
 		</div>
 	</div>
 
-	<div style="flex: 2" class="Data_detail" id="signupData_detail">
+	<div class="Data_detail" id="signupData_detail">
 		<form class="detailData" action="/signupRefuse" method="post"
 			onsubmit="return signupRefuse()"
 			onkeydown="return captureReturnKey(event)">
@@ -46,16 +46,18 @@
 			<table>
 				<tr>
 					<td>사원 번호</td>
-					<td><input type="text" name="emplno" id="signupDetail_emplno"
-						readonly></td>
+					<td><input type="text" class="normal" name="emplno"
+						id="signupDetail_emplno" readonly></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" id="signupDetail_name"></td>
+					<td><input type="text" class="normal" name="name"
+						id="signupDetail_name"></td>
 				</tr>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" id="signupDetail_id" readonly></td>
+					<td><input type="text" class="normal" name="id"
+						id="signupDetail_id" readonly></td>
 				</tr>
 				<tr>
 					<td>부서</td>
@@ -85,14 +87,14 @@
 				</tr>
 				<tr>
 					<td>입사일</td>
-					<td><input type="date" name="startdate"
+					<td><input type="date" class="normal" name="startdate"
 						id="signupDetail_startdate" max="9999-12-31"></td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
-					<td><input type="text" name="email" id="signupDetail_email1"
-						maxlength='20'> @ <select name="email"
-						id="signupDetail_email2">
+					<td><input type="text" class="normal" name="email"
+						id="signupDetail_email1" maxlength='20'> @ <select
+						name="email" id="signupDetail_email2">
 							<option value="@naver.com">naver.com</option>
 							<option value="@daum.net">daum.net</option>
 							<option value="@google.com">gmail.com</option>
@@ -100,37 +102,43 @@
 				</tr>
 				<tr>
 					<td>전화번호</td>
-					<td><select name="phone" id="signupDetail_phone1">
+					<td><select name="phone" class="short"
+						id="signupDetail_phone1">
 							<option value="010">010</option>
 							<option value="011">011</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="019">019</option>
 					</select>- <input type="text" name="phone" id="signupDetail_phone2"
-						maxlength='4' class="shortbox"
+						maxlength='4' class="short"
 						onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"> -
 						<input type="text" name="phone" id="signupDetail_phone3"
-						maxlength='4' class="shortbox"
+						maxlength='4' class="short"
 						onKeyup="this.value=this.value.replace(/[^-0-9]/g,'');"></td>
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input type="date" name="birth" id="signupDetail_birth"
-						max="9999-12-31" readonly></td>
+					<td><input type="date" class="normal" name="birth"
+						id="signupDetail_birth" max="9999-12-31" readonly></td>
 				</tr>
 				<tr>
 					<td>주소</td>
-					<td><input type="text" name="addr" id="signupDetail_addr1"
-						placeholder="우편번호"> <input type="button" id="addrButton"
-						onclick="signupAddr()" value="우편번호 찾기"><br> <input
-						type="text" name="addr" id="signupDetail_addr2" placeholder="주소"><br>
-						<input type="text" name="addr" id="signupDetail_addrDetail"
-						placeholder="상세주소"> <input type="text" name="addr"
-						id="signupDetail_addrExtra" placeholder="참고항목"></td>
+					<td><input type="text" class="short" name="addr"
+						id="signupDetail_addr1" placeholder="우편번호"> <input
+						type="button" id="addrButton" onclick="signupAddr()"
+						value="우편번호 찾기"><br> <input type="text" class="long"
+						name="addr" id="signupDetail_addr2" placeholder="주소"><br>
+						<input type="text" class="long" name="addr"
+						id="signupDetail_addrDetail" placeholder="상세주소"> <input
+						type="text" class="short" name="addr" id="signupDetail_addrExtra"
+						placeholder="참고항목"></td>
 				</tr>
 			</table>
-			<input type="button" value="허가" onclick="signupPermit()"><input
-				type="submit" value="거절">
+			<div class="manage_button">
+				<input type="button" class="positive" value="허가"
+					onclick="signupPermit()"><input class="negative"
+					type="submit" value="거절">
+			</div>
 		</form>
 	</div>
 
