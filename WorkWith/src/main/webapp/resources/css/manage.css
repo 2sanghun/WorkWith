@@ -127,7 +127,7 @@ body {
 .detailData td:nth-child(2) {
 	text-align: left;
 	width: 350px;
-}
+} 
 
 .detailData input[type=text] {
 	padding: 3px 3px 3px 3px;
