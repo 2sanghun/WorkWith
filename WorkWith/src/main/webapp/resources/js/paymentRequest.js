@@ -1,5 +1,20 @@
 $(document).ready(function(){
-	 
+	requestMember();
+	
+	// 퇴직하지 않은 회원의 검색관련 함수
+	$("#request_department").on("change", function() {
+		requestMember();
+	});
+	
+	$("#request_position").on("change", function() {
+		requestMember();
+	});
+	
+	$("#request_name").on("keyup",function(){
+		requestMember();
+	})
+	
+	
 	$('input[name="paymentFile"]').change(function() {
 		var str="";
 		// 위의 결과를 str에 저장하고 id가 uploadResult2인 태그에 넣어준다.
@@ -19,11 +34,10 @@ $(document).ready(function(){
 	
 	
 	
-	/* 
-	  	첨부파일 공격에 대비하기 위한 업로드 파일 확장자 제한
-		.exe, .zip, .alz 등	-> 첨부 못하게
-		특정 크기 이상의 파일 		-> 첨부 못하게
-	*/
+	/*
+	 * 첨부파일 공격에 대비하기 위한 업로드 파일 확장자 제한 .exe, .zip, .alz 등 -> 첨부 못하게 특정 크기 이상의 파일 ->
+	 * 첨부 못하게
+	 */
 	// 함수 선언
 	// 정규식을 이용하여 확장자 제한
 	var reg = new RegExp("(.*?)\.(exe|zip|alz)$");
@@ -48,11 +62,20 @@ $(document).ready(function(){
 		return true;
 	}
 		
-	// 파일 전송버튼(id="sendBtn")을 클릭하면 
+	// 파일 전송버튼(id="sendBtn")을 클릭하면
 	$("#sendBtn").on("click",function(){
 		// 제목과 내용을 유효성 검사
 		var title = document.querySelector("#paymentTitle").value;
 		var content = $("#paymentCon").val();
+		var sendId = $("#request_sendId").val();
+		var sendPosi = $("#request_sendPosi").val();
+		var sendDep = $("#request_sendDep").val();
+		var sendName = $("#request_sendName").val();
+		var recvId = $("#request_recvId").val();
+		var recvPosi = $("#request_recvPosi").val();
+		var recvDep = $("#request_recvDep").val();
+		var recvName = $("#request_recvName").val();
+
 		if(title==""){
 			alert("제목을 입력하세요.");
 			return false;
@@ -61,6 +84,17 @@ $(document).ready(function(){
 			alert("내용을 입력하세요.");
 			return false;
 		}
+		if(recvId==""){
+			alert("요청할 상대를 선택하세요.");
+			return false;
+		}else{
+			var request = {"sendId":sendId,"sendPosi":sendPosi,"sendDep":sendDep,
+					"sendName":sendName,"recvId":recvId,"recvPosi":recvPosi,"recvDep":recvDep,"recvName":recvName}
+			var requestList = []
+			requestList.push(request)
+		}
+		
+		
 		
 		// 파일 업로드 관련 로직 처리
 		var formData = new FormData();
@@ -68,9 +102,7 @@ $(document).ready(function(){
 		var inputFile = $("input[name='paymentFile']");
  
 		var files = inputFile[0].files;
-		
-		console.log(files);
-		
+				
 		for(var i=0; i<files.length; i++){
 			// 함수 호출(checkExtension)
 			if(!checkExtension(files[i].name, files[i].size)){
@@ -93,26 +125,61 @@ $(document).ready(function(){
 				console.log(result);
 				var atlist = [];
 				var input = "";
-				$(result).each(function(i, obj){	// result가 배열이면 each(for) i가 인덱스 번호, obj[i]
-					var listdata = {"fileName":obj.fileName,"uuid":obj.uuid,"uploadPath":obj.uploadPath,"image":obj.image}
+				$(result).each(function(i, obj){	// result가 배열이면 each(for) i가
+													// 인덱스 번호, obj[i]
+					var listdata = {"fileName":obj.fileName,"uuid":obj.uuid,"uploadPath":obj.uploadPath}
 					atlist.push(listdata);
 				})
-				writePost({content:content,title:title,attach:atlist})
+				paymentPost({content:content,title:title,attach:atlist,paymentStatus:requestList})
 			}
 		})
 	})
 	
 })
 
-function writePost(board){
-	console.log(board);
+function paymentPost(payment){
 	$.ajax({ 
 		type:"POST",
 		url:"/payment",
-		data:JSON.stringify(board),
+		data:JSON.stringify(payment),
 		contentType:"application/json; charset=utf-8",
 		success: function(){
-			alert("저장 완료")
+			alert("요청 완료")
 		}
 	})
+}
+
+function requestMember() {
+	var quit = 0;
+	var department = $("#request_department").val();
+	var position = $("#request_position").val();
+	var name = $("#request_name").val();
+	
+	$.getJSON("/memberManage", {
+		department : department,
+		position : position,
+		name : name,
+		quit : quit
+	}, function(memberList) {
+		if(memberList.length==0){
+			var member = "<tr><td id='nonData'><span>결과가 없습니다.</span></td></tr>";
+		}else{
+			var member = "<tr><td>부서</td><td>이름</td><td>직책</td></tr>";
+			$(memberList).each(function(i,memberList){
+				member += "<tr onclick='requestSelect(\""+memberList.id+"\",\""+memberList.department+"\",\""+memberList.name+"\",\""+memberList.position+"\")'>" +
+						"<td><span readonly >"+memberList.department+"</span></td>" +
+						"<td><span readonly>"+memberList.name+"</span></td>" +
+						"<td><span readonly>"+memberList.position+"</span></td></tr>"
+			})
+		}
+		$("#seniorList table").html(member);
+	})
+}
+
+function requestSelect(recvId, recvDep, recvName, recvPosi){
+	var request = "<input type='hidden' id='request_recvId' value='"+recvId+"'>" +
+			"<input type='hidden' id='request_recvPosi' value='"+recvPosi+"'>" +
+			"<input type='hidden' id='request_recvDep' value='"+recvDep+"'>" +
+			"<input type='hidden' id='request_recvName' value='"+recvName+"'>";
+	$("#seniorInfo").html(request);
 }

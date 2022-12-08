@@ -15,29 +15,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PaymentController {
-	
+
 	@Autowired
 	PaymentService ps;
-	
+
 	@RequestMapping(value = "/payment/paymentPage", method = RequestMethod.GET)
 	public void paymentPage() {
-		
+
 	}
 
 	@RequestMapping(value = "/payment", method = RequestMethod.POST, consumes = "application/json; charset=utf-8")
 	public ResponseEntity<String> writePost(HttpServletRequest request, @RequestBody PaymentVO pay) {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		String department = (String) session.getAttribute("department");
-		String position = (String) session.getAttribute("position");
-		String name = (String) session.getAttribute("name");
 
 		pay.setId(id);
-		pay.setSendDep(department);
-		pay.setSendPosi(position);
-		pay.setSendName(name);
-		
+
 		ps.paymentWrite(pay);
 		return new ResponseEntity<>("success", HttpStatus.OK);
 	}
+
 }

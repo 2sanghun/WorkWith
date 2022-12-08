@@ -17,21 +17,7 @@ public class PaymentVO {
 	// AttachFileVO(파일 업로드 관련 model)
 	private ArrayList<PaymentAttachVO> attach;
 	
-	private int sno;
-
-	private String recvId;
-	
-	private String sendPosi;
-	
-	private String recvPosi;
-	
-	private String sendName;
-	
-	private String recvName;
-	
-	private String sendDep;
-	
-	private String recvDep;
+	private ArrayList<PaymentStatusVO> paymentStatus;
 	
 	public int getPno() {
 		return pno;
@@ -81,75 +67,19 @@ public class PaymentVO {
 		this.attach = attach;
 	}
 
-	public int getSno() {
-		return sno;
+	
+
+	public ArrayList<PaymentStatusVO> getPaymentStatus() {
+		return paymentStatus;
 	}
 
-	public void setSno(int sno) {
-		this.sno = sno;
-	}
-
-	public String getRecvId() {
-		return recvId;
-	}
-
-	public void setRecvId(String recvId) {
-		this.recvId = recvId;
-	}
-
-	public String getSendPosi() {
-		return sendPosi;
-	}
-
-	public void setSendPosi(String sendPosi) {
-		this.sendPosi = sendPosi;
-	}
-
-	public String getRecvPosi() {
-		return recvPosi;
-	}
-
-	public void setRecvPosi(String recvPosi) {
-		this.recvPosi = recvPosi;
-	}
-
-	public String getSendName() {
-		return sendName;
-	}
-
-	public void setSendName(String sendName) {
-		this.sendName = sendName;
-	}
-
-	public String getRecvName() {
-		return recvName;
-	}
-
-	public void setRecvName(String recvName) {
-		this.recvName = recvName;
-	}
-
-	public String getSendDep() {
-		return sendDep;
-	}
-
-	public void setSendDep(String sendDep) {
-		this.sendDep = sendDep;
-	}
-
-	public String getRecvDep() {
-		return recvDep;
-	}
-
-	public void setRecvDep(String recvDep) {
-		this.recvDep = recvDep;
+	public void setPaymentStatus(ArrayList<PaymentStatusVO> paymentStatus) {
+		this.paymentStatus = paymentStatus;
 	}
 
 	@Override
 	public String toString() {
 		return "PaymentVO [pno=" + pno + ", title=" + title + ", content=" + content + ", status=" + status + ", id="
-				+ id + ", attach=" + attach + ", sno=" + sno + ", recvId=" + recvId + ", sendPosi=" + sendPosi
-				+ ", recvPosi=" + recvPosi + ", sendName=" + sendName + ", recvName=" + recvName + ", sendDep="
-				+ sendDep + ", recvDep=" + recvDep + "]";
+				+ id + ", attach=" + attach + ", paymentStatus=" + paymentStatus + "]";
 	}
 }

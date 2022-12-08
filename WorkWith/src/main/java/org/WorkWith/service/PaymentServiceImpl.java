@@ -23,6 +23,12 @@ public class PaymentServiceImpl implements PaymentService{
 				pam.insert(attach);
 			});
 		}
+		if (pay.getPaymentStatus() != null) {
+			pay.getPaymentStatus().forEach(status -> {
+				status.setPno(pay.getPno());
+				pm.statusInsert(status);
+			});
+		}
 	}
 
 }

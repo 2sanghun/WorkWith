@@ -5,36 +5,19 @@ $(document).ready(function() {
 	
 	// 인사 관리 버튼 클릭시
 	$("#memberManage_button").on("click", function() {
-		$("#memberManage")[0].style.display = "flex";
-		$("#memberManage_button")[0].style.paddingBottom = "10px";
-		$("#signupManage")[0].style.display = "none";
-		$("#signupManage_button")[0].style.paddingBottom = "0px";
-		$("#quitManage")[0].style.display = "none";
-		$("#quitManage_button")[0].style.paddingBottom = "0px";
-
+		managebutton_click("memberManage")
 		memberManage(0);
 	})
 	
 	// 회원가입 허가 버튼 클릭시
 	$("#signupManage_button").on("click", function() {
-		$("#signupManage")[0].style.display = "flex";
-		$("#signupManage_button")[0].style.paddingBottom = "10px";
-		$("#memberManage")[0].style.display = "none";
-		$("#memberManage_button")[0].style.paddingBottom = "0px";
-		$("#quitManage")[0].style.display = "none";
-		$("#quitManage_button")[0].style.paddingBottom = "0px";
-
+		managebutton_click("signupManage")
 		signupManage();
 	})
 	
 	// 퇴직자 버튼 클릭시 
 	$("#quitManage_button").on("click", function() {
-		$("#quitManage")[0].style.display = "flex";
-		$("#quitManage_button")[0].style.paddingBottom = "10px";
-		$("#signupManage")[0].style.display = "none";
-		$("#signupManage_button")[0].style.paddingBottom = "0px";
-		$("#memberManage")[0].style.display = "none";
-		$("#memberManage_button")[0].style.paddingBottom = "0px";
+		managebutton_click("quitManage")
 		memberManage(1);
 	})
 	
@@ -48,7 +31,6 @@ $(document).ready(function() {
 	});
 	
 	$("#member_name").on("keyup",function(){
-		var name = $("#member_name").val();
 		memberManage(0);
 	})
 	
@@ -62,7 +44,6 @@ $(document).ready(function() {
 	});
 	
 	$("#signup_name").on("keyup",function(){
-		var name = $("#member_name").val();
 		signupManage();
 	})
 	
@@ -76,7 +57,6 @@ $(document).ready(function() {
 	});
 	
 	$("#quit_name").on("keyup",function(){
-		var name = $("#quit_name").val();
 		memberManage(1);
 	})
 	
@@ -151,6 +131,25 @@ $(document).ready(function() {
 		})
 	});
 })
+
+// 인사관리 관련 버튼 클릭 함수
+function managebutton_click(button) {
+	var a = [ "memberManage", "signupManage", "quitManage"];
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] === button) {
+			a.splice(i, 1);
+			i--;
+		}
+	}
+
+	$("#" + button)[0].style.display = "flex";
+	$("#" + button + "_button")[0].style.paddingBottom = "10px";
+	
+	for (let i = 0; i < a.length; i++) {
+		$("#" + a[i])[0].style.display = "none";
+		$("#" + a[i] + "_button")[0].style.paddingBottom = "0px";
+	}
+}
 
 // is_quit는 퇴직 여부를 나타내는 매개변수
 // 퇴직한 회원의 경우 1을 주고 퇴직하지 않은 회원의 경우 0를 넣어준다.
