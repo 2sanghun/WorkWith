@@ -67,14 +67,6 @@ $(document).ready(function(){
 		// 제목과 내용을 유효성 검사
 		var title = document.querySelector("#paymentTitle").value;
 		var content = $("#paymentCon").val();
-		var sendId = $("#request_sendId").val();
-		var sendPosi = $("#request_sendPosi").val();
-		var sendDep = $("#request_sendDep").val();
-		var sendName = $("#request_sendName").val();
-		var recvId = $("#request_recvId").val();
-		var recvPosi = $("#request_recvPosi").val();
-		var recvDep = $("#request_recvDep").val();
-		var recvName = $("#request_recvName").val();
 
 		if(title==""){
 			alert("제목을 입력하세요.");
@@ -84,7 +76,17 @@ $(document).ready(function(){
 			alert("내용을 입력하세요.");
 			return false;
 		}
-		if(recvId==""){
+		
+		var sendId = $("#request_sendId").val();
+		var sendPosi = $("#request_sendPosi").val();
+		var sendDep = $("#request_sendDep").val();
+		var sendName = $("#request_sendName").val();
+		var recvId = $("#request_recvId").val();
+		var recvPosi = $("#request_recvPosi").val();
+		var recvDep = $("#request_recvDep").val();
+		var recvName = $("#request_recvName").val();
+		
+		if(recvId==undefined){
 			alert("요청할 상대를 선택하세요.");
 			return false;
 		}else{
@@ -145,6 +147,7 @@ function paymentPost(payment){
 		contentType:"application/json; charset=utf-8",
 		success: function(){
 			alert("요청 완료")
+			location.href='/payment/paymentPage';
 		}
 	})
 }

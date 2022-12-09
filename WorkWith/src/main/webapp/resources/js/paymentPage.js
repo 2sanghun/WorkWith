@@ -36,10 +36,12 @@ function paybutton_click(button) {
 	}
 
 	$("#" + button)[0].style.display = "flex";
+	$("#" + button + "_button")[0].style.background = "red";
 	$("#" + button + "_button")[0].style.paddingBottom = "10px";
 	
 	for (let i = 0; i < a.length; i++) {
 		$("#" + a[i])[0].style.display = "none";
+		$("#" + a[i] + "_button")[0].style.background = "white";
 		$("#" + a[i] + "_button")[0].style.paddingBottom = "0px";
 	}
 }
