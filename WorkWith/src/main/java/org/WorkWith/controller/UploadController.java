@@ -34,15 +34,14 @@ public class UploadController {
 
 	@RequestMapping(value = "/uploadAjaxAction", method = RequestMethod.POST)
 	public ResponseEntity<ArrayList<AttachFileVO>> uploadAjaxAction(MultipartFile[] uploadFile) {
-		
+		System.out.println("1");
 		// AttachFileVO 클래스 포함
 		ArrayList<AttachFileVO> list = new ArrayList<>();
 		// 폴더 경로
-		String uploadFolder = "D:\\upload";
+		String uploadFolder = "E:\\01-STUDY\\upload";
 		// 서버 업로드 경로와 getFolder 메서드의 날짜 문자열을 이어서 하나의 폴더 생성
 		File uploadPath = new File(uploadFolder, getFolder());
-		
-		// 폴더 생성(D:\\upload\\현재날짜)
+		// 폴더 생성(E:\\upload\\현재날짜)
 		if(uploadPath.exists() == false) {	// uploadPath가 존재하지 않으면
 			uploadPath.mkdirs();
 		}
@@ -70,10 +69,10 @@ public class UploadController {
 			
 			// 파일 저장
 			//						어느 폴더에,		어떤 파일이름으로
-			//					ex)	어느 폴더에(D:\\upload\\현재날짜), 어떤 파일이름으로(UUID_a1.jpg)
+			//					ex)	어느 폴더에(E:\\01-STUDY\\upload\\현재날짜), 어떤 파일이름으로(UUID_a1.jpg)
 			File saveFile = new File(uploadPath, uuid.toString()+"_"+multipartFile.getOriginalFilename());
 			
-			// 					ex)	D:\\upload\\a1.jpg에 파일을 전송(transferTo)
+			// 					ex)	E:\\01-STUDY\\upload\\a1.jpg에 파일을 전송(transferTo)
 			try {	// transferTo() 메서드에 예외가 있으면
 			    multipartFile.transferTo(saveFile);	// 서버로 원본파일 전송
 			    // 내가 서버에 올리고자 하는 파일이 이미지이면,
@@ -102,7 +101,7 @@ public class UploadController {
 	public ResponseEntity<byte[]> getFile(String fileName){
 		System.out.println(fileName);
 		
-		File file = new File("D:\\upload\\"+fileName);
+		File file = new File("E:\\\\01-STUDY\\upload\\"+fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -121,7 +120,7 @@ public class UploadController {
 	@RequestMapping(value = "/download", method = RequestMethod.GET)
 	public ResponseEntity<Resource> downloadFile(String fileName){
 		
-		Resource resource = new FileSystemResource("D:\\upload\\"+fileName);
+		Resource resource = new FileSystemResource("E:\\01-STUDY\\upload\\"+fileName);
 		
 		// 다운로드 시 파일의 이름을 처리
 		String resourceName = resource.getFilename();

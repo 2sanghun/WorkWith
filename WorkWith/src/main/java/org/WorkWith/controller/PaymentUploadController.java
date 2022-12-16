@@ -31,11 +31,11 @@ public class PaymentUploadController {
 		// PaymentAttachVO 클래스 포함
 		ArrayList<PaymentAttachVO> list = new ArrayList<>();
 		// 폴더 경로
-		String uploadFolder = "D:\\paymentUpload";
+		String uploadFolder = "E:\\01-STUDY\\paymentUpload";
 		// 서버 업로드 경로와 getFolder 메서드의 날짜 문자열을 이어서 하나의 폴더 생성
 		File uploadPath = new File(uploadFolder, getFolder());
 		
-		// 폴더 생성(D:\\paymentUpload\\현재날짜)
+		// 폴더 생성(E:\\01-STUDY\\paymentUpload\\현재날짜)
 		if(uploadPath.exists() == false) {	// uploadPath가 존재하지 않으면
 			uploadPath.mkdirs();
 		}
@@ -59,10 +59,10 @@ public class PaymentUploadController {
 			
 			// 파일 저장
 			//						어느 폴더에,		어떤 파일이름으로
-			//					ex)	어느 폴더에(D:\\paymentUpload\\현재날짜), 어떤 파일이름으로(UUID_a1.pdf)
+			//					ex)	어느 폴더에(E:\\01-STUDY\\paymentUpload\\현재날짜), 어떤 파일이름으로(UUID_a1.pdf)
 			File saveFile = new File(uploadPath, uuid.toString()+"_"+multipartFile.getOriginalFilename());
 			
-			// 					ex)	D:\\paymentUpload\\a1.jpg에 파일을 전송(transferTo)
+			// 					ex)	E:\\01-STUDY\\paymentUpload\\a1.jpg에 파일을 전송(transferTo)
 			try {	// transferTo() 메서드에 예외가 있으면
 			    multipartFile.transferTo(saveFile);	// 서버로 원본파일 전송
 			    //  PaymentAttachVO에 저장 된 데이터를 배열에 추가(add 메서드)
@@ -79,7 +79,7 @@ public class PaymentUploadController {
 	@RequestMapping(value = "/paymentDownload", method = RequestMethod.GET)
 	public ResponseEntity<Resource> downloadFile(String fileName){
 		
-		Resource resource = new FileSystemResource("D:\\paymentUpload\\"+fileName);
+		Resource resource = new FileSystemResource("E:\\01-STUDY\\paymentUpload\\"+fileName);
 		
 		// 다운로드 시 파일의 이름을 처리
 		String resourceName = resource.getFilename();
